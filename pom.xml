@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    
+    <modelVersion>4.0.0</modelVersion>   
+    
+    <!-- Project's Maven coordinates -->
+    <groupId>com.gpstracker.server</groupId>
+    <artifactId>gpstracker-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    <!-- Project Information -->
+    <name>GPS Tracking Server Application</name>
+    <url>//None</url>
+    
+    <!-- Packaging Output -->
+    <packaging>pom</packaging>
+    
+    <!-- Sub-Modules -->
+    <modules>
+        <module>gpstracker-server-model</module>
+        <module>gpstracker-server-message-processor</module>
+        <module>gpstracker-server-webservice</module>
+        <module>gpstracker-server-app-distribution</module>
+    </modules>
+    
+    <!-- Properties - mainly versioning -->
+    <properties>
+        <spring.version>4.1.4.RELEASE</spring.version>
+        <log4j.version>2.1</log4j.version>
+        <servlet.version>3.1.0</servlet.version>
+        <!-- Testing Scope -->
+        <junit.version>4.12</junit.version>
+        <easymock.version>3.3</easymock.version>
+        <powermock.version>1.6.1</powermock.version>
+    </properties>
+
+	<!-- Dependency Management for Project -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Application Dependencies -->
+			<!-- Logging -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<!-- Web/Servlet -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet.version}</version>
+			</dependency>
+			<!-- Spring Framework -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- Test Dependencies -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+				<version>${easymock.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-core</artifactId>
+				<version>${powermock.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-easymock</artifactId>
+				<version>${powermock.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+    
+    <!-- Gobal Dependencies (Inheritted by all sub-modules) -->
+	<dependencies>
+		<!-- Application Dependencies -->
+		<!-- //EMPTY -->
+		
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+    
+</project>
