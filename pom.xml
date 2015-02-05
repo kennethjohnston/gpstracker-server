@@ -40,13 +40,12 @@
 		<log4j.version>2.1</log4j.version>
 		<servlet.version>3.1.0</servlet.version>
 		<javax-ws.version>2.2.10</javax-ws.version>
-		<!-- Testing Scope -->
+		<!-- Testing -->
 		<junit.version>4.1</junit.version>
 		<easymock.version>3.3</easymock.version>
 		<powermock.version>1.6.1</powermock.version>
 		<!-- Building -->
 		<jvnet-jax-ws.version>2.1</jvnet-jax-ws.version>
-		<jaxws-tools.version>2.2.5</jaxws-tools.version>
 	</properties>
 
 	<!-- Dependency Management for Project -->
@@ -80,7 +79,6 @@
 				<artifactId>jaxws-tools</artifactId>
 				<version>${javax-ws.version}</version>
 			</dependency>
-
 			<!-- Spring Framework -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -107,7 +105,6 @@
 				<artifactId>spring-jms</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-
 			<!-- Test Dependencies -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -161,7 +158,7 @@
 						<dependency>
 							<groupId>com.sun.xml.ws</groupId>
 							<artifactId>jaxws-tools</artifactId>
-							<version>${jaxws-tools.version}</version>
+							<version>${javax-ws.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
