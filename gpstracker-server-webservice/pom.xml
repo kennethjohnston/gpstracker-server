@@ -29,6 +29,11 @@
 			<artifactId>gpstracker-server-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gpstracker-server-message-processor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 		<!-- Third Party Dependencies -->
 		<dependency>
@@ -47,19 +52,28 @@
 
 	<!-- Build Section -->
 	<build>
+	   	<finalName>gpsTracker</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jvnet.jax-ws-commons</groupId>
+					<artifactId>jaxws-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>generate-webservice-wsdl</id>
+							<phase>process-classes</phase>
+							<goals>
+								<goal>wsgen</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.jvnet.jax-ws-commons</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>generate-webservice-wsdl</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>wsgen</goal>
-						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<sei>com.gpstracker.webservice.GpsLocationService</sei>
 					<sourceDestDir>src/main/java</sourceDestDir>

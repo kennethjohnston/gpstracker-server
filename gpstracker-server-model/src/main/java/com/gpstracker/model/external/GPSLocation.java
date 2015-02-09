@@ -1,37 +1,37 @@
-package com.gpstracker.common.model.internal;
+package com.gpstracker.model.external;
 
 /**
  *
  */
 public class GPSLocation {
-	private Double longitude;
-	private Double latitude;
+	private String longitude;
+	private String latitude;
 
 	/**
 	 * @return the longitude
 	 */
-	public Double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
 	/**
 	 * @param longitude the longitude to set
 	 */
-	public void setLongitude(Double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
 	/**
 	 * @return the latitude
 	 */
-	public Double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
 	/**
 	 * @param latitude the latitude to set
 	 */
-	public void setLatitude(Double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 

@@ -13,27 +13,19 @@
 	<name>GPS Tracking Server Application</name>
 	<url>//None</url>
 
-	<!-- Repositories -->
-	<repositories>
-		<repository>
-			<id>Default</id>
-			<name>Ensure usage of the Default Maven Repository</name>
-			<url>http://repo1.maven.org/maven2/</url>
-		</repository>
-	</repositories>
-
 	<!-- Packaging Output -->
 	<packaging>pom</packaging>
 
-	<!-- Sub-Modules -->
+	<!-- Project Sub-Modules -->
 	<modules>
 		<module>gpstracker-server-model</module>
 		<module>gpstracker-server-message-processor</module>
 		<module>gpstracker-server-webservice</module>
+		<module>gpstracker-server-website</module>
 		<module>gpstracker-server-app-distribution</module>
 	</modules>
 
-	<!-- Properties - mainly versioning -->
+	<!-- Project Properties -->
 	<properties>
 		<!-- Application -->
 		<spring.version>4.1.4.RELEASE</spring.version>
@@ -45,10 +37,11 @@
 		<easymock.version>3.3</easymock.version>
 		<powermock.version>1.6.1</powermock.version>
 		<!-- Building -->
-		<jvnet-jax-ws.version>2.1</jvnet-jax-ws.version>
+		<java.compile.version>1.7</java.compile.version>
+		<jvnet-jax-ws.version>2.3</jvnet-jax-ws.version>
 	</properties>
 
-	<!-- Dependency Management for Project -->
+	<!-- Project Dependency Management -->
 	<dependencyManagement>
 		<dependencies>
 			<!-- Application Dependencies -->
@@ -129,7 +122,7 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- Gobal Dependencies (Inheritted by all sub-modules) -->
+	<!-- Project Dependencies (Inheritted by all sub-modules) -->
 	<dependencies>
 		<!-- Application Dependencies -->
 		<dependency>
@@ -145,7 +138,7 @@
 		</dependency>
 	</dependencies>
 
-	<!-- Build Section -->
+	<!-- Project Build Settings -->
 	<build>
 		<!-- Plugin Management -->
 		<pluginManagement>
@@ -164,14 +157,15 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<!-- Project Plugins -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.compile.version}</source>
+					<target>${java.compile.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
