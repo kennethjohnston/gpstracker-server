@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent Project Maven coordinates -->
+	<parent>
+		<groupId>com.gpstracker.server</groupId>
+		<artifactId>gpstracker-server</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<!-- Project Maven coordinates -->
+	<artifactId>gpstracker-server-website</artifactId>
+
+	<!-- Project Information -->
+	<name>GPS Tracking Server Application - Web Site</name>
+	<description>The project module defines the web site.</description>
+
+	<!-- Packaging Output -->
+	<packaging>war</packaging>
+
+	<!-- Module Dependencies -->
+	<dependencies>
+		<!-- Project Dependencies -->
+		<!-- N/A -->
+
+		<!-- Third Party Dependencies -->
+		<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<scope>provided</scope>
+			</dependency>
+	</dependencies>
+
+	<!-- Build Section -->
+	<build>
+	    <finalName>ROOT</finalName>
+	</build>
+
+</project>

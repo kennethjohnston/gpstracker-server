@@ -15,8 +15,13 @@ public class GpsLocationService {
 	@WebMethod
 	public boolean gpsLocationRQ(@WebParam(name="gpsLocation") GPSLocation gpsLocation) {
 		GPSCoordinates gpsCoordinates = new GPSCoordinates();
+<<<<<<< HEAD
+		gpsCoordinates.setLatitude(Double.valueOf(gpsLocation.getLatitude()));
+		gpsCoordinates.setLongitude(Double.valueOf(gpsLocation.getLongitude()));
+=======
 		//gpsCoordinates.setLatitude(Double.valueOf(gpsLocation.getLatitude()));
 		//gpsCoordinates.setLongitude(Double.valueOf(gpsLocation.getLongitude()));
+>>>>>>> branch 'master' of https://github.com/kennethjohnston/gpstracker-server.git
 
 		return messageProcessor.processGpsCoordinates(gpsCoordinates);
 	}

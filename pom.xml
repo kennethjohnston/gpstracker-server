@@ -19,6 +19,7 @@
 	<!-- Project Sub-Modules -->
 	<modules>
 		<module>gpstracker-server-model</module>
+		<module>gpstracker-server-core</module>
 		<module>gpstracker-server-message-processor</module>
 		<module>gpstracker-server-webservice</module>
 		<module>gpstracker-server-website</module>
