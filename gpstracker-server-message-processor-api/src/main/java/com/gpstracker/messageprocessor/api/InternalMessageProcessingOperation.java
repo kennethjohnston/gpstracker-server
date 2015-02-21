@@ -1,4 +1,4 @@
-package com.gpstracker.server.core.api.message.processor;
+package com.gpstracker.messageprocessor.api;
 
 /**
  * Defines an internal message processing operation of the application, all other internal message processing operations

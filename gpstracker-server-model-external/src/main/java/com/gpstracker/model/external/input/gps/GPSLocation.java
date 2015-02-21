@@ -1,9 +1,11 @@
-package com.gpstracker.model.external;
+package com.gpstracker.model.external.input.gps;
+
+import com.gpstracker.model.external.ExternalEntity;
 
 /**
  *
  */
-public class GPSLocation {
+public class GPSLocation extends ExternalEntity {
 	private String longitude;
 	private String latitude;
 

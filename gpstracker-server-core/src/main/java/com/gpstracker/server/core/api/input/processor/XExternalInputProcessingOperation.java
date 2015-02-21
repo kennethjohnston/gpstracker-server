@@ -8,6 +8,6 @@ package com.gpstracker.server.core.api.input.processor;
  * application, this will generally be clients. The external input processing should rely upon the external model as input, and transform
  * the external input to the application internal model.
  */
-public interface ExternalInputProcessingOperation {
+public interface XExternalInputProcessingOperation {
 
 }

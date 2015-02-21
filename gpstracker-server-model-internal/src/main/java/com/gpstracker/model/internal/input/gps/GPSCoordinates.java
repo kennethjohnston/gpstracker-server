@@ -1,4 +1,4 @@
-package com.gpstracker.model.internal;
+package com.gpstracker.model.internal.input.gps;
 
 /**
  *

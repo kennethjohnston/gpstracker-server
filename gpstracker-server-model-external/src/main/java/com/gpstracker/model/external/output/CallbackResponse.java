@@ -1,4 +1,4 @@
-package com.gpstracker.model.external.response;
+package com.gpstracker.model.external.output;
 
 /**
  * Representation a callback response which can be sent back to a client to indicate when it should callback to collect

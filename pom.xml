@@ -18,8 +18,14 @@
 
 	<!-- Project Sub-Modules -->
 	<modules>
-		<module>gpstracker-server-model</module>
+		<!-- Model -->
+		<module>gpstracker-server-model-internal</module>
+		<module>gpstracker-server-model-external</module>
+		<!-- Apis -->
+		<module>gpstracker-server-message-processor-api</module>
+		<!-- Core -->
 		<module>gpstracker-server-core</module>
+		<!-- Implementations-->
 		<module>gpstracker-server-message-processor</module>
 		<module>gpstracker-server-webservice</module>
 		<module>gpstracker-server-website</module>

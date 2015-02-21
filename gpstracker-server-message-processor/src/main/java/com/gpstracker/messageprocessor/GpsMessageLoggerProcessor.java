@@ -3,11 +3,12 @@ package com.gpstracker.messageprocessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.gpstracker.model.internal.GPSCoordinates;
+import com.gpstracker.messageprocessor.api.GpsMessageProcessor;
+import com.gpstracker.model.internal.input.gps.GPSCoordinates;
 
-public class GpsMessageProcessor {
+public class GpsMessageLoggerProcessor implements GpsMessageProcessor {
 
-	private static final Logger LOGGER = LogManager.getLogger(GpsMessageProcessor.class);
+	private static final Logger LOGGER = LogManager.getLogger(GpsMessageLoggerProcessor.class);
 
 	public boolean processGpsCoordinates(GPSCoordinates gpsCoordinates) {
 		

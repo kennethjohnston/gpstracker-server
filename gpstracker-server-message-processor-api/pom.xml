@@ -11,10 +11,10 @@
     </parent>
     
     <!-- Project Maven coordinates -->
-    <artifactId>gpstracker-server-message-processor</artifactId>
+    <artifactId>gpstracker-server-message-processor-api</artifactId>
     
     <!-- Project Information -->
-    <name>GPS Tracking Server Application - Message Processing Module</name>
+    <name>GPS Tracking Server Application - Message Processing Module (API)</name>
     <description>The project module defines message processors that will handle input from as an external model and process to an internal model.</description>
      
     <!-- Packaging Output -->
@@ -22,11 +22,6 @@
     
     <!-- Module Dependencies -->
 	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-message-processor-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>gpstracker-server-model-internal</artifactId>

@@ -2,26 +2,26 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-        
+
     <!-- Parent Project Maven coordinates -->
     <parent>
         <groupId>com.gpstracker.server</groupId>
         <artifactId>gpstracker-server</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
+
     <!-- Project Maven coordinates -->
-    <artifactId>gpstracker-server-model</artifactId>
-    
+    <artifactId>gpstracker-server-model-external</artifactId>
+
     <!-- Project Information -->
-    <name>GPS Tracking Server Application - Model Module</name>
-    <description>The project module defines the data model.</description>
-     
+    <name>GPS Tracking Server Application - External Model Module</name>
+    <description>The project module defines the external data model.</description>
+
     <!-- Packaging Output -->
     <packaging>jar</packaging>
-    
+
     <!-- Module Dependencies -->
     <dependencies>
     </dependencies>
-    
+
 </project>
