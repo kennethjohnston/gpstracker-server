@@ -1,4 +1,4 @@
-package com.gpstracker.server.core.api;
+package com.gpstracker.server.core.api.input.processor;
 
 /**
  * Defines a external input processing operation of the application, all other external input processing operations

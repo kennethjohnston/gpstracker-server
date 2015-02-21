@@ -10,6 +10,14 @@ public class GpsMessageProcessor {
 	private static final Logger LOGGER = LogManager.getLogger(GpsMessageProcessor.class);
 
 	public boolean processGpsCoordinates(GPSCoordinates gpsCoordinates) {
+		
+		// Log Metrics
+		
+		// Validate Message.
+		
+		// Store Message.
+		
+		// Process input.
 		LOGGER.error("\n-------------------------------------------"
 		+ "\nReceived: " + gpsCoordinates.toString()
 		+ "\nLongtitude = " + gpsCoordinates.getLongitude()
