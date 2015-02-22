@@ -11,6 +11,6 @@ import com.gpstracker.model.internal.input.gps.GPSCoordinates;
  */
 public interface GpsMessageProcessor extends InternalMessageProcessingOperation {
 
-	public boolean processGpsCoordinates(GPSCoordinates gpsCoordinates);
+	boolean processGpsCoordinates(GPSCoordinates gpsCoordinates);
 
 }

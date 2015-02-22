@@ -20,7 +20,7 @@ public class LocalStatefulThroughputMonitor implements ThroughputMonitor {
 	private AtomicLong operationsRecieved = new AtomicLong(0);
 
 	/**
-	 * Non-public constructor.
+	 * Non-public constructor to support singleton usage.
 	 */
 	protected LocalStatefulThroughputMonitor() {
 	}

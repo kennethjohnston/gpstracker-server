@@ -1,9 +1,12 @@
 package com.gpstracker.model.internal.input.gps;
 
+import com.gpstracker.model.internal.InternalEntity;
+
+
 /**
- *
+ * 
  */
-public class GPSCoordinates {
+public class GPSCoordinates extends InternalEntity {
 	private Double longitude;
 	private Double latitude;
 

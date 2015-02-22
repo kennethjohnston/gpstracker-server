@@ -5,7 +5,7 @@ package com.gpstracker.server.core.api;
  * method calls and, if required, adjust how the invocation is handled.
  *
  * This can allow for method call to be re-invoked in a more suitable style. For example,
- * the invocation of the method call could invoke the method call on a seperate thread, or
+ * the invocation of the method call could invoke the method call on a separate thread, or
  * pass the method call to execution service.
  *
  * This functionality maybe be offered in utilised a frameworks, however, it is important that

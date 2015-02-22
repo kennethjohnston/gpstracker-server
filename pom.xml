@@ -21,14 +21,22 @@
 		<!-- Model -->
 		<module>gpstracker-server-model-internal</module>
 		<module>gpstracker-server-model-external</module>
+		
 		<!-- Apis -->
+		<module>gpstracker-server-service-api</module>
+		<module>gpstracker-server-service-persisent-api</module>
 		<module>gpstracker-server-message-processor-api</module>
+		
 		<!-- Core -->
 		<module>gpstracker-server-core</module>
+		
 		<!-- Implementations-->
+		<module>gpstracker-server-service-persisent-jdbc-impl</module>
 		<module>gpstracker-server-message-processor</module>
 		<module>gpstracker-server-webservice</module>
 		<module>gpstracker-server-website</module>
+		
+		<!-- Distrubition Package/Builds -->
 		<module>gpstracker-server-app-distribution</module>
 	</modules>
 
@@ -39,6 +47,7 @@
 		<log4j.version>2.1</log4j.version>
 		<servlet.version>3.1.0</servlet.version>
 		<javax-ws.version>2.2.10</javax-ws.version>
+		<jms.version>2.0</jms.version>
 		<!-- Testing -->
 		<junit.version>4.1</junit.version>
 		<easymock.version>3.3</easymock.version>
@@ -105,6 +114,13 @@
 				<artifactId>spring-jms</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<!-- JMS -->
+			<dependency>
+				<groupId>javax.jms</groupId>
+				<artifactId>javax.jms-api</artifactId>
+				<version>${jms.version}</version>
+			</dependency>
+			
 			<!-- Test Dependencies -->
 			<dependency>
 				<groupId>junit</groupId>
