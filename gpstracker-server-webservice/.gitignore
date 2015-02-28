@@ -1,4 +1,5 @@
 /target
+/src/main/java/com/gpstracker/server/webservice/jaxws
 /.settings
 /.directory
 /.project
