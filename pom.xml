@@ -24,8 +24,9 @@
 		<!-- Apis -->
 		<module>gpstracker-server-service-persister-api</module>
 		<module>gpstracker-server-service-api</module>
+
 		<module>gpstracker-server-message-processor-api</module>		
-		<module>gpstracker-server-request-handler-api</module>		
+		<module>gpstracker-server-request-handler-api</module>				
 		<!-- Core -->
 		<module>gpstracker-server-core</module>		
 		<!-- Implementations-->
