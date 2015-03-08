@@ -1,7 +1,7 @@
 package com.gpstracker.server.service;
 
 import com.gpstracker.server.model.internal.input.gps.GPSCoordinates;
-import com.gpstracker.server.service.api.GpsService;
+import com.gpstracker.server.service.gps.api.GpsService;
 import com.gpstracker.server.service.persister.dao.api.GPSCoordinatesDAO;
 
 public class CommonGpsService implements GpsService {

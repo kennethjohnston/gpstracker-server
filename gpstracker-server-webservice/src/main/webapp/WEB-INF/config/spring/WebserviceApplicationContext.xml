@@ -9,6 +9,10 @@
         http://jax-ws.dev.java.net/spring/servlet
         http://jax-ws.dev.java.net/spring/servlet.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="/WEB-INF/config/properties/dev.properties" />
+    </bean>
+    
 	<import resource="MessageProcessorContext.xml" />
 	
 	<wss:binding url="/gpsTracker">

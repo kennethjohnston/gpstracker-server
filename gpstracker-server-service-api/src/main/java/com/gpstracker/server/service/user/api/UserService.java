@@ -1,4 +1,4 @@
-package com.gpstracker.server.service.api;
+package com.gpstracker.server.service.user.api;
 
 import com.gpstracker.server.model.internal.user.User;
 

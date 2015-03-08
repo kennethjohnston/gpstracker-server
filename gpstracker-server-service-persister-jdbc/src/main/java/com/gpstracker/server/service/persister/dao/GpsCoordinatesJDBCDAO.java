@@ -1,7 +1,5 @@
 package com.gpstracker.server.service.persister.dao;
 
-import java.sql.Date;
-
 import com.gpstracker.server.model.internal.input.gps.GPSCoordinates;
 import com.gpstracker.server.service.persister.dao.api.GPSCoordinatesDAO;
 

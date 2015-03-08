@@ -7,7 +7,7 @@
 	<import resource="PersisterContext.xml" />
 
 	<bean id="gpsService" class="com.gpstracker.server.service.CommonGpsService">
-		<property name="gpsDAO" ref="gpsDAO" />
+		<property name="persister" ref="gpsDAO" />
 	</bean>
 
 </beans>

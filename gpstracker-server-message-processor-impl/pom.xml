@@ -47,6 +47,16 @@
 			<artifactId>gpstracker-server-message-processor-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gpstracker-server-service-persister-jdbc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gpstracker-server-service-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
     
 </project>

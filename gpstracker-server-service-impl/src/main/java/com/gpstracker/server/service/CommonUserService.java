@@ -1,9 +1,9 @@
 package com.gpstracker.server.service;
 
 import com.gpstracker.server.model.internal.user.User;
-import com.gpstracker.server.service.api.UserService;
 import com.gpstracker.server.service.persister.api.Persister;
 import com.gpstracker.server.service.persister.dao.api.UserDAO;
+import com.gpstracker.server.service.user.api.UserService;
 
 public class CommonUserService implements UserService {
 	

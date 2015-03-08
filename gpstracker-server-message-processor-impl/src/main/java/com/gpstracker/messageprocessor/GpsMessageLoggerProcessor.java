@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.gpstracker.messageprocessor.api.GpsMessageProcessor;
 import com.gpstracker.server.model.internal.input.gps.GPSCoordinates;
-import com.gpstracker.server.service.api.GpsService;
+import com.gpstracker.server.service.gps.api.GpsService;
 
 public class GpsMessageLoggerProcessor implements GpsMessageProcessor {
 
