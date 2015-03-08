@@ -4,9 +4,9 @@ import org.joda.time.LocalDate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gpstracker.server.model.internal.user.User;
 import com.gpstracker.server.service.persister.dao.UserJDBCDAO;
 import com.gpstracker.server.service.persister.dao.api.UserDAO;
-import com.gpstracker.sever.model.internal.user.User;
 
 public class Test {
 

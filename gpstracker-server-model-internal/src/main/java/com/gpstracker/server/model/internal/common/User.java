@@ -1,4 +1,4 @@
-package com.gpstracker.sever.model.internal.common;
+package com.gpstracker.server.model.internal.common;
 
 
 

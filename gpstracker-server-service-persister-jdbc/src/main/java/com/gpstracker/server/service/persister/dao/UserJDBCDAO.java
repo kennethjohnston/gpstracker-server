@@ -2,9 +2,9 @@ package com.gpstracker.server.service.persister.dao;
 
 import java.sql.Date;
 
+import com.gpstracker.server.model.internal.user.User;
 import com.gpstracker.server.service.persister.dao.api.UserDAO;
 import com.gpstracker.server.service.persister.mapper.UserMapper;
-import com.gpstracker.sever.model.internal.user.User;
 
 /**
  * An implementation of the User data access object. The implementation

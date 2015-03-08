@@ -1,4 +1,4 @@
-package com.gpstracker.sever.model.internal.user;
+package com.gpstracker.server.model.internal.user;
 
 import org.joda.time.LocalDate;
 
