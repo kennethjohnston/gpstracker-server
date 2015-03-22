@@ -9,11 +9,11 @@ import com.gpstracker.server.core.api.InvocationProxy;
  * This implementation is designed to be used to support asynchronous processing using message queue through JMS.
  */
 public class PassThroughInvocationProxy implements InvocationProxy {
-	
-	@Override
-	public Object invoke() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    
+    @Override
+    public Object invoke() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

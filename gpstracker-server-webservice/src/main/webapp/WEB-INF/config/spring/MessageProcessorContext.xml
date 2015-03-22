@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<import resource="ServiceContext.xml" />
+    <import resource="ServiceContext.xml" />
 
-	<bean id="gpsMessageProcessor" class="com.gpstracker.messageprocessor.GpsMessageLoggerProcessor">
-		<property name="gpsService" ref="gpsService" />
-	</bean>
+    <bean id="gpsMessageProcessor" class="com.gpstracker.messageprocessor.GpsMessageLoggerProcessor">
+        <property name="gpsService" ref="gpsService" />
+    </bean>
 
 </beans>

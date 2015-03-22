@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<import resource="datasource/Datasource.xml" />
+    <import resource="datasource/Datasource.xml" />
 
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<constructor-arg index="0" ref="dataSource" />
-	</bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg index="0" ref="dataSource" />
+    </bean>
 
-	<bean id="gpsDAO" class="com.gpstracker.server.service.persister.dao.GpsCoordinatesJDBCDAO">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
+    <bean id="gpsDAO" class="com.gpstracker.server.service.persister.dao.GpsCoordinatesJDBCDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
 
-	<bean id="userDAO" class="com.gpstracker.server.service.persister.dao.UserJDBCDAO">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
+    <bean id="userDAO" class="com.gpstracker.server.service.persister.dao.UserJDBCDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
 
 </beans>

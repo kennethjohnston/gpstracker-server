@@ -18,22 +18,22 @@ package com.gpstracker.server.core.api;
  */
 public interface ThroughputMonitor extends CoreOperation {
 
-	/**
-	 * Gets the number of processing operations that are currently outstanding.
-	 *
-	 * @return the number of outstanding operations
-	 */
-	long getOutstandingMessageRequetCount();
+    /**
+     * Gets the number of processing operations that are currently outstanding.
+     *
+     * @return the number of outstanding operations
+     */
+    long getOutstandingMessageRequetCount();
 
-	/**
-	 * Gets the frequency of operations received by the application per second.
-	 * @return
-	 */
-	long getOperationRequestFrequencyPerSecond();
+    /**
+     * Gets the frequency of operations received by the application per second.
+     * @return
+     */
+    long getOperationRequestFrequencyPerSecond();
 
-	/**
-	 * Gets the frequency of operations processed by the application per second.
-	 * @return
-	 */
-	long getOperationProcessedFrequencyPerSecond();
+    /**
+     * Gets the frequency of operations processed by the application per second.
+     * @return
+     */
+    long getOperationProcessedFrequencyPerSecond();
 }

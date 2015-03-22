@@ -6,16 +6,16 @@ import com.gpstracker.server.core.api.InvocationProxy;
  * Abstract invocation proxy. Defines standard and common structure for a standard invocation proxy.
  */
 public class AbstractInvocationProxy implements InvocationProxy {
-	
-	private String targetCall;
+    
+    private String targetCall;
 
-	@Override
-	public Object invoke() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	//---------------------------------------------------------------------------------------------
-	// Getters and Setters
+    @Override
+    public Object invoke() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
 
 }

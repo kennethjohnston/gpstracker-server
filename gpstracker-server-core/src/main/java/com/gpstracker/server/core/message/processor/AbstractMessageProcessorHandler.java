@@ -7,9 +7,9 @@ import com.gpstracker.server.model.internal.mq.InternalMessage;
  * will control the flow of processing. 
  */
 public class AbstractMessageProcessorHandler {
-	
-	public void handleMessageRequest(InternalMessage message) {
-		
-	}
+    
+    public void handleMessageRequest(InternalMessage message) {
+        
+    }
 
 }

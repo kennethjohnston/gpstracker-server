@@ -1,6 +1,6 @@
 package com.gpstracker.messageprocessor.api;
 
-import com.gpstracker.server.model.internal.input.gps.GPSCoordinates;
+import com.gpstracker.server.model.internal.gps.GlobalPosition;
 
 /**
  * Defines how an internal representation of a GPS coordinates/message should be processed. The processor should
@@ -11,6 +11,6 @@ import com.gpstracker.server.model.internal.input.gps.GPSCoordinates;
  */
 public interface GpsMessageProcessor extends InternalMessageProcessingOperation {
 
-	boolean processGpsCoordinates(GPSCoordinates gpsCoordinates);
+    boolean processGpsCoordinates(GlobalPosition gpsCoordinates);
 
 }

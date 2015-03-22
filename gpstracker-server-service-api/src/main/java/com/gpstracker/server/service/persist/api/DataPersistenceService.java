@@ -17,32 +17,32 @@ import com.gpstracker.server.service.api.ServiceOperation;
  */
 public interface DataPersistenceService extends ServiceOperation {
 
-	/**
-	 * Stores an object 
-	 * @param obj the object to store
-	 * @return true if the object was stored successfully, false otherwise
-	 */
-	boolean store(Object obj);
-	
-	/**
-	 * Stores a collection of objects to the database.
-	 * @param objCollection the object collection to store
-	 * @return true if the object collection was stored successfully, false otherwise
-	 */
-	boolean store(Collection<Object> objCollection);
-	
-	/**
-	 * Loads an object
-	 * @param criteriaString the requirements to load the object
-	 * @return the result object from the requirements, may be null
-	 */
-	Object load(String criteriaString);
-	
-	/**
-	 * Loads a collection of objects
-	 * @param criteriaString the requirements to load the object colletion
-	 * @return the result object collection from the requirements, may be null
-	 */
-	Collection<Object> loadCollection(String criteriaString);
+    /**
+     * Stores an object 
+     * @param obj the object to store
+     * @return true if the object was stored successfully, false otherwise
+     */
+    boolean store(Object obj);
+    
+    /**
+     * Stores a collection of objects to the database.
+     * @param objCollection the object collection to store
+     * @return true if the object collection was stored successfully, false otherwise
+     */
+    boolean store(Collection<Object> objCollection);
+    
+    /**
+     * Loads an object
+     * @param criteriaString the requirements to load the object
+     * @return the result object from the requirements, may be null
+     */
+    Object load(String criteriaString);
+    
+    /**
+     * Loads a collection of objects
+     * @param criteriaString the requirements to load the object colletion
+     * @return the result object collection from the requirements, may be null
+     */
+    Collection<Object> loadCollection(String criteriaString);
 
 }

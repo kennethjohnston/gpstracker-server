@@ -3,7 +3,7 @@ package com.gpstracker.server.core.invocation;
 import javax.jms.Queue;
 
 import com.gpstracker.server.core.api.InvocationProxy;
-import com.gpstracker.server.service.mq.api.MessageQueueService;
+import com.gpstracker.server.service.mq.api.DataMessageQueueService;
 
 /**
  * The invocation proxy implementation will capture the invocation, however, instead of processing the request. The request will
@@ -12,18 +12,18 @@ import com.gpstracker.server.service.mq.api.MessageQueueService;
  * This implementation is designed to be used to support asynchronous processing using message queue through JMS.
  */
 public class MessageQueueDelegationInvocationProxy implements InvocationProxy {
-	
-	private MessageQueueService mqService;	
-	private Queue targetQueue;	
-	private String messageType;
+    
+    private DataMessageQueueService mqService;    
+    private Queue targetQueue;    
+    private String messageType;
 
-	@Override
-	public Object invoke() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	//---------------------------------------------------------------------------------------------
-	// Getters and Setters
+    @Override
+    public Object invoke() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
 
 }

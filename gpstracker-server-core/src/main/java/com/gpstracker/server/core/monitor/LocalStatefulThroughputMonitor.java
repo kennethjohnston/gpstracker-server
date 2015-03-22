@@ -14,32 +14,32 @@ import com.gpstracker.server.core.api.ThroughputMonitor;
  */
 public class LocalStatefulThroughputMonitor implements ThroughputMonitor {
 
-	/** Singleton instance of the through put monitor. */
-	public LocalStatefulThroughputMonitor INSTANCE = new LocalStatefulThroughputMonitor();
-	/** . */	
-	private AtomicLong operationsRecieved = new AtomicLong(0);
+    /** Singleton instance of the through put monitor. */
+    public LocalStatefulThroughputMonitor INSTANCE = new LocalStatefulThroughputMonitor();
+    /** . */    
+    private AtomicLong operationsRecieved = new AtomicLong(0);
 
-	/**
-	 * Non-public constructor to support singleton usage.
-	 */
-	protected LocalStatefulThroughputMonitor() {
-	}
+    /**
+     * Non-public constructor to support singleton usage.
+     */
+    protected LocalStatefulThroughputMonitor() {
+    }
 
-	@Override
-	public long getOutstandingMessageRequetCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public long getOutstandingMessageRequetCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public long getOperationRequestFrequencyPerSecond() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public long getOperationRequestFrequencyPerSecond() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public long getOperationProcessedFrequencyPerSecond() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public long getOperationProcessedFrequencyPerSecond() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
  }

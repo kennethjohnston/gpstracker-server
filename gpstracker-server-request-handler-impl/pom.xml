@@ -11,7 +11,7 @@
     </parent>
     
     <!-- Project Maven coordinates -->
-    <artifactId>gpstracker-server-request-handler-api</artifactId>
+    <artifactId>gpstracker-server-request-handler-impl</artifactId>
     
     <!-- Project Information -->
     <name>GPS Tracking Server Application - Input Request Handler Module (API)</name>
@@ -21,17 +21,27 @@
     <packaging>jar</packaging>
     
     <!-- Module Dependencies -->
-	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-model-internal</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-model-external</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-internal</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-external</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-request-handler-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-message-processor-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
     
 </project>

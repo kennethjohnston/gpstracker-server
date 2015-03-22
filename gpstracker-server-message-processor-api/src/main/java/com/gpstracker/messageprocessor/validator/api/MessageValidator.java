@@ -7,5 +7,5 @@ package com.gpstracker.messageprocessor.validator.api;
  */
 public interface MessageValidator<T> {
 
-	public boolean validateMessage(T message);
+    public boolean validateMessage(T message);
 }

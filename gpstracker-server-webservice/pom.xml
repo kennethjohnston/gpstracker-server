@@ -1,128 +1,118 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
 
-	<!-- Parent Project Maven coordinates -->
-	<parent>
-		<groupId>com.gpstracker.server</groupId>
-		<artifactId>gpstracker-server</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
+    <!-- Parent Project Maven coordinates -->
+    <parent>
+        <groupId>com.gpstracker.server</groupId>
+        <artifactId>gpstracker-server</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-	<!-- Project Maven coordinates -->
-	<artifactId>gpstracker-server-webservice</artifactId>
+    <!-- Project Maven coordinates -->
+    <artifactId>gpstracker-server-webservice</artifactId>
 
-	<!-- Project Information -->
-	<name>GPS Tracking Server Application - Web Service</name>
-	<description>The project module defines the web services.</description>
+    <!-- Project Information -->
+    <name>GPS Tracking Server Application - Web Service</name>
+    <description>The project module defines the web services.</description>
 
-	<!-- Packaging Output -->
-	<packaging>war</packaging>
+    <!-- Packaging Output -->
+    <packaging>war</packaging>
 
-	<!-- Module Dependencies -->
-	<dependencies>
-		<!-- Project Dependencies -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-model-external</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-model-internal</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-service-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-message-processor-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-message-processor-impl</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gpstracker-server-request-handler-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+    <!-- Module Dependencies -->
+    <dependencies>
+        <!-- Project Dependencies -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-external</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-internal</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-service-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-request-handler-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-		<!-- Third Party Dependencies -->
-		<dependency>
-			<groupId>javax.xml.ws</groupId>
-			<artifactId>jaxws-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-rt</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-tools</artifactId>
-		</dependency>
-		<dependency>
-      		<groupId>org.jvnet.jax-ws-commons.spring</groupId>
-     		<artifactId>jaxws-spring</artifactId>
-   		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
-	</dependencies>
+        <!-- Third Party Dependencies -->
+        <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-tools</artifactId>
+        </dependency>
+        <dependency>
+              <groupId>org.jvnet.jax-ws-commons.spring</groupId>
+             <artifactId>jaxws-spring</artifactId>
+           </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+    </dependencies>
 
-	<!-- Build Section -->
-	<build>
-	   	<finalName>gpsTracker</finalName>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.jvnet.jax-ws-commons</groupId>
-					<artifactId>jaxws-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>generate-webservice-wsdl</id>
-							<phase>process-classes</phase>
-							<goals>
-								<goal>wsgen</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.jvnet.jax-ws-commons</groupId>
-				<artifactId>jaxws-maven-plugin</artifactId>
-				<configuration>
-					<sei>com.gpstracker.server.webservice.GpsLocationService</sei>
-					<sourceDestDir>src/main/java</sourceDestDir>
-					<wsdlDirectory>src/resources/wsdl</wsdlDirectory>
-					<keep>true</keep>
-					<genWsdl>true</genWsdl>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <!-- Build Section -->
+    <build>
+           <finalName>gpsTracker</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jvnet.jax-ws-commons</groupId>
+                    <artifactId>jaxws-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>generate-webservice-wsdl</id>
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>wsgen</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <configuration>
+                    <sei>com.gpstracker.server.webservice.GpsLocationService</sei>
+                    <sourceDestDir>src/main/java</sourceDestDir>
+                    <wsdlDirectory>src/resources/wsdl</wsdlDirectory>
+                    <keep>true</keep>
+                    <genWsdl>true</genWsdl>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

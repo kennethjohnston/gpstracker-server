@@ -9,11 +9,11 @@ import com.gpstracker.server.core.api.CoreOperation;
  */
 public interface CallbackIntervalResponseCalculator extends CoreOperation {
 
-	/**
-	 * Calculates the time interval in milli-seconds on when a client should call
-	 * back for a response.
-	 * @return
-	 */
-	long caculatedCallbackInterval();
+    /**
+     * Calculates the time interval in milli-seconds on when a client should call
+     * back for a response.
+     * @return
+     */
+    long caculatedCallbackInterval();
 
 }

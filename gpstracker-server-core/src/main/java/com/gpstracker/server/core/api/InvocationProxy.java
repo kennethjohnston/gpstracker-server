@@ -14,6 +14,6 @@ package com.gpstracker.server.core.api;
  */
 public interface InvocationProxy extends CoreOperation {
 
-	public Object invoke();
+    public Object invoke();
 
 }

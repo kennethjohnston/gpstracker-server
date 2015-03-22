@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ws="http://jax-ws.dev.java.net/spring/core"
-	xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+    xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://jax-ws.dev.java.net/spring/core
         http://jax-ws.dev.java.net/spring/core.xsd
@@ -13,19 +13,19 @@
         <property name="location" value="/WEB-INF/config/properties/dev.properties" />
     </bean>
     
-	<import resource="MessageProcessorContext.xml" />
-	
-	<wss:binding url="/gpsTracker">
-		<wss:service>
-			<ws:service bean="#gpsTrackerWs" />
-		</wss:service>
-	</wss:binding>
+    <import resource="MessageProcessorContext.xml" />
+    
+    <wss:binding url="/gpsTracker">
+        <wss:service>
+            <ws:service bean="#gpsTrackerWs" />
+        </wss:service>
+    </wss:binding>
 
-	<bean id="gpsTrackerWs" class="com.gpstracker.server.webservice.GpsLocationService">
-		<property name="externalInputConveter" ref="gpsExternalInputConverter" />
-		<property name="messageProcessor" ref="gpsMessageProcessor" />
-	</bean>
-	
-	<bean id="gpsExternalInputConverter" class="com.gpstracker.server.input.conveter.GpsLocationExternalInputConverter" />
+    <bean id="gpsTrackerWs" class="com.gpstracker.server.webservice.GpsLocationService">
+        <property name="externalInputConveter" ref="gpsExternalInputConverter" />
+        <property name="messageProcessor" ref="gpsMessageProcessor" />
+    </bean>
+    
+    <bean id="gpsExternalInputConverter" class="com.gpstracker.server.input.conveter.GpsLocationExternalInputConverter" />
 
 </beans>

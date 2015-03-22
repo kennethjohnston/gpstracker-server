@@ -17,11 +17,11 @@ import com.gpstracker.server.service.api.ServiceOperation;
  */
 public interface Persister<T> extends ServiceOperation {
 
-	boolean store(T t);
-	
-	T load(long id);
-	
-	boolean update(T t);
-	
-	boolean delete(T t);
+    boolean store(T t);
+    
+    T load(long id);
+    
+    boolean update(T t);
+    
+    boolean delete(T t);
 }
