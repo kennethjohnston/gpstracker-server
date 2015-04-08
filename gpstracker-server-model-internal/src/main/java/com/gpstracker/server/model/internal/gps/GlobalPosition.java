@@ -1,5 +1,8 @@
 package com.gpstracker.server.model.internal.gps;
 
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+
 import com.gpstracker.server.model.internal.InternalEntity;
 
 /**
@@ -7,8 +10,12 @@ import com.gpstracker.server.model.internal.InternalEntity;
  */
 public class GlobalPosition extends InternalEntity {
 
+    /** . */
     private Double longitude;
+    /** . */
     private Double latitude;
+    /** The date associated with the location. */
+    private DateTime dateTime;
 
     /**
      * Get the longitude.
@@ -46,5 +53,19 @@ public class GlobalPosition extends InternalEntity {
      */
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    /**
+     * @return the dateTime
+     */
+    public DateTime getDateTime() {
+        return dateTime;
+    }
+
+    /**
+     * @param dateTime the dateTime to set
+     */
+    public void setDateTime(DateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }

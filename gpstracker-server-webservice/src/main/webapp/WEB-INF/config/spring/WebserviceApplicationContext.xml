@@ -9,23 +9,46 @@
         http://jax-ws.dev.java.net/spring/servlet
         http://jax-ws.dev.java.net/spring/servlet.xsd">
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="/WEB-INF/config/properties/dev.properties" />
-    </bean>
-    
-    <import resource="MessageProcessorContext.xml" />
-    
-    <wss:binding url="/gpsTracker">
-        <wss:service>
-            <ws:service bean="#gpsTrackerWs" />
-        </wss:service>
-    </wss:binding>
+	<import resource="CoreApplicationContext.xml" />
+	
+	<wss:binding url="/wsUserRegistration">
+		<wss:service>
+			<ws:service bean="#gpsTrackerUserRegistrationWs" />
+		</wss:service>
+	</wss:binding>
 
-    <bean id="gpsTrackerWs" class="com.gpstracker.server.webservice.GpsLocationService">
-        <property name="externalInputConveter" ref="gpsExternalInputConverter" />
-        <property name="messageProcessor" ref="gpsMessageProcessor" />
+	<wss:binding url="/wsUserLogin">
+		<wss:service>
+			<ws:service bean="#gpsTrackerUserLoginWs" />
+		</wss:service>
+	</wss:binding>
+
+	<wss:binding url="/wsUserRegisterLocation">
+		<wss:service>
+			<ws:service bean="#gpsTrackerRegisterLocationWs" />
+		</wss:service>
+	</wss:binding>
+
+	<wss:binding url="/wsUserLocationHistory">
+		<wss:service>
+			<ws:service bean="#gpsTrackerHistoryWs" />
+		</wss:service>
+	</wss:binding>
+    
+    <bean id="gpsTrackerUserRegistrationWs" class="com.gpstracker.server.webservice.UserRegistrationService">
+        <property name="handler" ref="userRegistrationInputHandlerFrameworkHandler" />
     </bean>
     
-    <bean id="gpsExternalInputConverter" class="com.gpstracker.server.input.conveter.GpsLocationExternalInputConverter" />
+    <bean id="gpsTrackerUserLoginWs" class="com.gpstracker.server.webservice.UserLoginService">
+        <property name="handler" ref="userLoginInputHandlerFrameworkHandler" />
+    </bean>
+    
+    <bean id="gpsTrackerRegisterLocationWs" class="com.gpstracker.server.webservice.GpsLocationRegistrationService">
+        <property name="handler" ref="gpsRegistrationInputHandlerFrameworkHandler" />
+    </bean>
+    
+    <bean id="gpsTrackerHistoryWs" class="com.gpstracker.server.webservice.UserHistoricLocationService">
+        <property name="handler" ref="gpsLocationHistoryInputHandlerFrameworkHandler" />
+    </bean>
 
 </beans>

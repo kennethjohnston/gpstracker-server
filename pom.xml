@@ -27,6 +27,8 @@
         <module>gpstracker-server-service-api</module>
         <module>gpstracker-server-request-handler-api</module>
         <module>gpstracker-server-message-processor-api</module>
+        <module>gpstracker-server-response-generator-api</module>
+        
         <!-- Core -->
         <module>gpstracker-server-core</module>
         <!-- Implementations -->
@@ -35,6 +37,8 @@
         <module>gpstracker-server-service-impl</module>
         <module>gpstracker-server-request-handler-impl</module>
         <module>gpstracker-server-message-processor-impl</module>
+        <module>gpstracker-server-response-generator-impl</module>
+        
         <!-- Web Service Distribution -->
         <module>gpstracker-server-webservice</module>
     </modules>

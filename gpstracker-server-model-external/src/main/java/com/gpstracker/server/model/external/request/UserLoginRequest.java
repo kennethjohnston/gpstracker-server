@@ -3,7 +3,7 @@ package com.gpstracker.server.model.external.request;
 /**
  * Represents a user login request.
  */
-public class UserLoginRequest {
+public class UserLoginRequest extends AbstractUserRequest {
 
     /** The user name. */
     private String userName;

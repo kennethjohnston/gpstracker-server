@@ -6,14 +6,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.gpstracker.server.model.internal.gps.GlobalPosition;
 import com.gpstracker.server.model.internal.mq.InternalMessage;
 import com.gpstracker.server.model.internal.mq.InternalMessageType;
-import com.gpstracker.server.service.mq.CommonMessageQueueService;
+import com.gpstracker.server.service.mq.DefaultMessageQueueService;
 
 public class JMSTester {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("config/spring/MessgageQueueContext.xml");
 
-        CommonMessageQueueService mqService = (CommonMessageQueueService) context.getBean("messageQueueService");
+        DefaultMessageQueueService mqService = (DefaultMessageQueueService) context.getBean("messageQueueService");
         
         boolean doLoop = true;
         while (doLoop) {

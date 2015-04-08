@@ -16,4 +16,59 @@ public abstract class AbstractUserRequest extends ExternalEntity {
     
     //---------------------------------------------------------------------------------------------
     // Getters and Setters
+    /**
+     * @return the userIdentifier
+     */
+    public UserIdentifier getUserIdentifier() {
+        return userIdentifier;
+    }
+    
+    /**
+     * @param userIdentifier the userIdentifier to set
+     */
+    public void setUserIdentifier(UserIdentifier userIdentifier) {
+        this.userIdentifier = userIdentifier;
+    }
+    
+    /**
+     * @return the authenticationToken
+     */
+    public String getAuthenticationToken() {
+        return authenticationToken;
+    }
+    
+    /**
+     * @param authenticationToken the authenticationToken to set
+     */
+    public void setAuthenticationToken(String authenticationToken) {
+        this.authenticationToken = authenticationToken;
+    }
+    
+    /**
+     * @return the deviceName
+     */
+    public String getDeviceName() {
+        return deviceName;
+    }
+    
+    /**
+     * @param deviceName the deviceName to set
+     */
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+    
+    /**
+     * @return the callBackAllowed
+     */
+    public boolean isCallBackAllowed() {
+        return callBackAllowed;
+    }
+    
+    /**
+     * @param callBackAllowed the callBackAllowed to set
+     */
+    public void setCallBackAllowed(boolean callBackAllowed) {
+        this.callBackAllowed = callBackAllowed;
+    }    
 }

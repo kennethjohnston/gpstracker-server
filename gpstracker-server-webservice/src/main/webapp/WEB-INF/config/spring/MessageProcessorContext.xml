@@ -3,11 +3,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-
-    <import resource="ServiceContext.xml" />
-
-    <bean id="gpsMessageProcessor" class="com.gpstracker.messageprocessor.GpsMessageLoggerProcessor">
+  
+    <bean id="userRegistrationProcessor" class="com.gpstracker.server.messageprocessor.user.DefaultUserRegistrationProcessor">
+    </bean>
+    
+    <bean id="userLoginProcessor" class="com.gpstracker.server.messageprocessor.user.DefaultUserLoginProcessor">
+    </bean>
+    
+    <bean id="gpsRegistrationProcessor" class="com.gpstracker.server.messageprocessor.gps.DefaultGpsLocationRegistrationProcessor">
         <property name="gpsService" ref="gpsService" />
     </bean>
-
+    
+    <bean id="gpsLocationHistoryProcessor" class="com.gpstracker.server.messageprocessor.gps.DefaultUserGpsLocationHistoryProcessor">
+    </bean>
+    
 </beans>

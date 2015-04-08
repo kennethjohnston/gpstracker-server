@@ -1,11 +1,10 @@
 package com.gpstracker.server.model.external.request;
 
-import com.gpstracker.server.model.external.ExternalEntity;
 
 /**
  * 
  */
-public class UserRegistrationRequest extends ExternalEntity {
+public class UserRegistrationRequest extends AbstractUserRequest {
     
     private String userName;
     private String password;

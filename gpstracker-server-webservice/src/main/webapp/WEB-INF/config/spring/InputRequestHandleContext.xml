@@ -4,8 +4,16 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <import resource="ServiceContext.xml" />
-    <import resource="MessageProcessorContext.xml" />
-
+    <bean id="userRegistrationRequestHandler" class="com.gpstracker.server.input.handler.user.DefaultUserRegistrationRequestHandler">
+    </bean>
+    
+    <bean id="userLoginRequestHandler" class="com.gpstracker.server.input.handler.user.DefaultUserLoginRequestHandler">
+    </bean>
+    
+    <bean id="gpsLocationRegistrationRequestHandler" class="com.gpstracker.server.input.handler.gps.DefaultGpsLocationRegistrationRequestHandler">
+    </bean>
+    
+    <bean id="gpsLocationHistoryRequestHandler" class="com.gpstracker.server.input.handler.gps.DefaultGpsLocationHistoryRequestHandler">
+    </bean>
 
 </beans>

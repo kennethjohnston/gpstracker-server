@@ -39,12 +39,23 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-service-mq-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-request-handler-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>gpstracker-server-message-processor-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-response-generator-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

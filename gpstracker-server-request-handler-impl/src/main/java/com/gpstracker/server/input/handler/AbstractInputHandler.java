@@ -2,9 +2,9 @@ package com.gpstracker.server.input.handler;
 
 import java.util.List;
 
-import com.gpstracker.server.input.handler.api.ExternalInputHandler;
-import com.gpstracker.server.input.handler.api.MessageParser;
-import com.gpstracker.server.input.handler.api.MessageValidator;
+import com.gpstracker.server.api.input.handler.ExternalInputConverter;
+import com.gpstracker.server.api.input.handler.ExternalInputHandler;
+import com.gpstracker.server.api.input.handler.ExternalInputValidator;
 
 /**
  * An abstract implementation of the input message handler that defines a template of how 
@@ -12,25 +12,22 @@ import com.gpstracker.server.input.handler.api.MessageValidator;
  *
  * @param <T> the type of the external input
  * @param <R> the type of the external output
- * @param <S> the type of the internal representation of the input
  */
-public abstract class AbstractInputHandler<T, R, S> implements ExternalInputHandler<T, R> {
+public abstract class AbstractInputHandler<T, R> implements ExternalInputHandler<T, R> {
 
-    private List<MessageValidator<T>> messageValidators;
-    private MessageParser<T> messageParser;
+    /** The validator of the external message. */
+    private List<ExternalInputValidator<T>> messageValidators;
+    /** The external to internal converter. */
+    private ExternalInputConverter<T, R> converter;
     
     /**
      * Takes as input 
      */
     @Override
-    public R handleInputMessage(T message) {
+    public R handleInputMessage(final T message) {
         R response = null;
         if (isValidate(message)) {
-            S internalMessage = parseExternalMessage(message);
-            response = processInternalMessage(internalMessage);
-        } else {
-            response = generateInvalidInputResponse();
-
+            response = convertToInternal(message);
         }
         
         return response;        
@@ -47,55 +44,42 @@ public abstract class AbstractInputHandler<T, R, S> implements ExternalInputHand
     
     /**
      * 
-     * @return
-     */
-    protected abstract R generateInvalidInputResponse();
-        
-    /**
-     * 
-     * @param internalMessage
-     * @return
-     */
-    protected abstract R processInternalMessage(S internalMessage);
-    
-    /**
-     * 
      * @param message
      * @return
      */
-    protected abstract S parseExternalMessage(T message);
+    protected abstract R convertToInternal(T message);
     
     //---------------------------------------------------------------------------------------------
     // Getters and Setters
     /**
      * Get message validator.
+     * 
      * @return the messageValidators
      */
-    public List<MessageValidator<T>> getMessageValidators() {
+    public List<ExternalInputValidator<T>> getMessageValidators() {
         return messageValidators;
     }
 
     /**
      * Set message validators.
+     * 
      * @param messageValidators the messageValidators to set
      */
-    public void setMessageValidators(List<MessageValidator<T>> messageValidators) {
+    public void setMessageValidators(List<ExternalInputValidator<T>> messageValidators) {
         this.messageValidators = messageValidators;
     }
 
     /**
-     * Get message parser.
-     * @return the messageParser
+     * @return the converter
      */
-    public MessageParser<T> getMessageParser() {
-        return messageParser;
+    public ExternalInputConverter<T, R> getConverter() {
+        return converter;
     }
 
     /**
-     * Set message parser.
-     * @param messageParser the messageParser to set
+     * @param converter the converter to set
      */
-    public void setMessageParser(MessageParser<T> messageParser) {
-        this.messageParser = messageParser;
+    public void setConverter(ExternalInputConverter<T, R> converter) {
+        this.converter = converter;
     }
 }

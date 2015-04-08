@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Parent Project Maven coordinates -->
+    <parent>
+        <groupId>com.gpstracker.server</groupId>
+        <artifactId>gpstracker-server</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <!-- Project Maven coordinates -->
+    <artifactId>gpstracker-server-response-generator-impl</artifactId>
+    
+    <!-- Project Information -->
+    <name>GPS Tracking Server Application - Response Generator Module (IMPL)</name>
+    <description>The project module defines response generator that will handle generate the external response.</description>
+     
+    <!-- Packaging Output -->
+    <packaging>jar</packaging>
+    
+    <!-- Module Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-internal</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-model-external</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>gpstracker-server-response-generator-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+    
+</project>

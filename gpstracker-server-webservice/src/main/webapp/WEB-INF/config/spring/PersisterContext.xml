@@ -3,14 +3,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-
+       
     <import resource="datasource/Datasource.xml" />
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg index="0" ref="dataSource" />
     </bean>
 
-    <bean id="gpsDAO" class="com.gpstracker.server.service.persister.dao.GpsCoordinatesJDBCDAO">
+    <bean id="gpsDAO" class="com.gpstracker.server.service.persister.dao.UserGlobalPositionJDBCDAO">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 

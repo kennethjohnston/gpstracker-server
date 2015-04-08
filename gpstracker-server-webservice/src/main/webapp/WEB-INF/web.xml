@@ -12,15 +12,18 @@
     </context-param>
 
     <servlet>
-        <servlet-name>gpsTracker</servlet-name>
+        <servlet-name>gpsTrackerService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet> 
- 
-    <servlet-mapping>
-        <servlet-name>gpsTracker</servlet-name>
-        <url-pattern>/gpsTracker</url-pattern>
-    </servlet-mapping>
+    </servlet>
+
+	<servlet-mapping>
+		<servlet-name>gpsTrackerService</servlet-name> 
+		<url-pattern>/wsUserRegistration</url-pattern>
+		<url-pattern>/wsUserLogin</url-pattern>
+		<url-pattern>/wsUserRegisterLocation</url-pattern>
+		<url-pattern>/wsUserLocationHistory</url-pattern>
+	</servlet-mapping>
  
     <!-- Register Spring Listener -->
     <listener>

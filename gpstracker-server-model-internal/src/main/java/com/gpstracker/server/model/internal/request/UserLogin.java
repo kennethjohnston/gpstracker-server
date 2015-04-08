@@ -1,5 +1,7 @@
 package com.gpstracker.server.model.internal.request;
 
-public class UserLogin {
+import com.gpstracker.server.model.internal.InternalEntity;
+
+public class UserLogin extends InternalEntity {
 
 }

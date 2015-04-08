@@ -6,8 +6,29 @@
 
     <import resource="PersisterContext.xml" />
 
-    <bean id="gpsService" class="com.gpstracker.server.service.CommonGpsService">
+    <bean id="gpsService" class="com.gpstracker.server.service.DefaultGpsService">
         <property name="persister" ref="gpsDAO" />
+    </bean>
+    
+    <bean id="userService" class="com.gpstracker.server.service.DefaultUserService">
+        <property name="persister" ref="userDAO" />
+    </bean>
+    
+    <bean id="mqService" class="com.gpstracker.server.service.mq.DefaultMessageQueueService">
+        <property name="jmsTemplate" ref="jmsTemplate" />
+    </bean>
+    
+    <!-- Spring JMS Template -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="jmsFactory" />
+    </bean>
+    
+    <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+        <property name="connectionFactory" ref="jmsConnectionFactory" />
+    </bean>
+
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${mq.broker.url}" />
     </bean>
 
 </beans>
