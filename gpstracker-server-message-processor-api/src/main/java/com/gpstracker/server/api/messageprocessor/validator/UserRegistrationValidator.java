@@ -1,5 +1,7 @@
 package com.gpstracker.server.api.messageprocessor.validator;
 
-public interface UserRegistrationValidator extends MessageValidator<Object> {
+import com.gpstracker.server.model.internal.request.UserRegistration;
+
+public interface UserRegistrationValidator extends MessageValidator<UserRegistration> {
 
 }

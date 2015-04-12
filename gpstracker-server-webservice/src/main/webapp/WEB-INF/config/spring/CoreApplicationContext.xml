@@ -69,12 +69,24 @@
 		<property name="nextFrameworkHandler" ref="gpsRegistrationMessageProcessorFrameworkHandler" />
 	</bean>
 
+	<bean id="gpsRegistrationMessageProcessorContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="jmsFactory"/>
+        <property name="destinationName" value="GPS_REGISTRATION_MESSAGE_PROCESSOR_INPUT"/>
+        <property name="messageListener" ref="gpsRegistrationMessageProcessorFrameworkHandler" />
+    </bean>
+    
 	<bean id="gpsRegistrationMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.MessageProcessorFrameworkHandler">
 		<property name="processor" ref="gpsRegistrationProcessor" />
 		<property name="mqService" ref="mqService" />
 		<property name="nextDistintationQueue" value="GPS_REGISTRATION_RESPONSE_GENERATOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="gpsRegistrationResponseGeneratorFrameworkHandler" />
 	</bean>
+	
+	<bean id="gpsRegistrationResponseGeneratorContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="jmsFactory"/>
+        <property name="destinationName" value="GPS_REGISTRATION_RESPONSE_GENERATOR_INPUT"/>
+        <property name="messageListener" ref="gpsRegistrationResponseGeneratorFrameworkHandler" />
+    </bean>
 
 	<bean id="gpsRegistrationResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.ResponseGeneratorFrameworkHandler">
 		<property name="responseGenerator" ref="gpsRegistrationResponseGenerator" />
@@ -104,5 +116,10 @@
 		<property name="mqService" ref="mqService" />
 		<property name="nextDistintationQueue" value="GPS_LOCATION_HISTORY_RESPONSE_OUTPUT" />
 	</bean>
+	
+    <!-- **************************************** -->   
+	<!-- Asynchronous Message Listener Containers -->
+    <!-- **************************************** -->	
+	
 
 </beans>

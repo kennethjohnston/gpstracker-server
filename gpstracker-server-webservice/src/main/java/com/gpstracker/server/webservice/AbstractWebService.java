@@ -2,9 +2,12 @@ package com.gpstracker.server.webservice;
 
 import javax.jws.WebMethod;
 
+import org.apache.log4j.Logger;
 import org.joda.time.LocalDateTime;
 
 import com.gpstracker.server.api.core.InternalFrameworkHandler;
+import com.gpstracker.server.api.core.ThroughputMonitor;
+import com.gpstracker.server.core.monitor.LocalStatefulThroughputMonitor;
 import com.gpstracker.server.model.external.request.AbstractUserRequest;
 import com.gpstracker.server.model.external.response.AbstractUserResponse;
 import com.gpstracker.server.model.internal.ProcessingContext;
@@ -18,9 +21,11 @@ import com.gpstracker.server.model.internal.ProcessingStageType;
  */
 public abstract class AbstractWebService<T extends AbstractUserRequest, R extends AbstractUserResponse> {
 
+    /** Logger. */
+    private static final Logger LOGGER = Logger.getLogger(AbstractWebService.class);
     /** The user registration request handler. */
     private InternalFrameworkHandler handler;
-    
+        
     /**
      * Web service that handles the GPS location requests.
      * 
@@ -28,6 +33,7 @@ public abstract class AbstractWebService<T extends AbstractUserRequest, R extend
      * @return true if the request was successful, false otherwise
      */
     public R handleRequest(final T request) {
+        LOGGER.info("Recieved Request \n\n");
         ProcessingContext context = createProcessingContext(request);
         
         return (R) handler.handle(context, request);

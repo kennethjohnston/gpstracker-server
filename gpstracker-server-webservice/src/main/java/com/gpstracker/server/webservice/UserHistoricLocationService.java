@@ -3,6 +3,7 @@ package com.gpstracker.server.webservice;
 import javax.jws.WebService;
 
 import com.gpstracker.server.model.external.request.UserGpsLocationHistoryRequest;
+import com.gpstracker.server.model.external.response.RawUserResponse;
 import com.gpstracker.server.model.external.response.UserGpsLocationHistoryResponse;
 
 /**
@@ -18,6 +19,13 @@ public class UserHistoricLocationService extends AbstractWebService<UserGpsLocat
      * @return the user registration response
      */
     public UserGpsLocationHistoryResponse retrieveGPSLocationHistory(final UserGpsLocationHistoryRequest gpsLocationHistoryRequest) {
-        return (UserGpsLocationHistoryResponse) super.handleRequest(gpsLocationHistoryRequest);
+        Object reponse = super.handleRequest(gpsLocationHistoryRequest);
+        if (reponse instanceof RawUserResponse) {
+            UserGpsLocationHistoryResponse userGpsLocationResponse = new UserGpsLocationHistoryResponse();
+            userGpsLocationResponse.setCallBackResponse(((RawUserResponse) reponse).getCallBackResponse());            
+            reponse = userGpsLocationResponse;
+        }
+        
+        return (UserGpsLocationHistoryResponse) reponse;
     }  
 }

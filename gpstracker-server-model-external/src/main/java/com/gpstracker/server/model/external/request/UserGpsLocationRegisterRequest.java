@@ -2,7 +2,7 @@ package com.gpstracker.server.model.external.request;
 
 import com.gpstracker.server.model.external.gps.GpsLocation;
 
-public class UserGpsLocationRegisterRequest  extends AbstractUserRequest {
+public class UserGpsLocationRegisterRequest extends AbstractUserRequest {
 
     /** The GPS location. */
     private GpsLocation gpsLocation;

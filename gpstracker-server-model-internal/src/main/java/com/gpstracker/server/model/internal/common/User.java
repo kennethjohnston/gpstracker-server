@@ -13,9 +13,9 @@ public class User extends InternalEntity {
     
     private long userId;
     private String userName;
-    private String userPhoneNumber;
-    private String userEmailAddress;
-    private LocalDate userRegistrationDate;
+    private String phoneNumber;
+    private String emailAddress;
+    private LocalDate registrationDate;
     
     /**
      * @return the userId
@@ -44,46 +44,48 @@ public class User extends InternalEntity {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
+
     /**
-     * @return the userPhoneNumber
+     * @return the phoneNumber
      */
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-    
-    /**
-     * @param userPhoneNumber the userPhoneNumber to set
-     */
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
-    }
-    
-    /**
-     * @return the userEmailAddress
-     */
-    public String getUserEmailAddress() {
-        return userEmailAddress;
-    }
-    
-    /**
-     * @param userEmailAddress the userEmailAddress to set
-     */
-    public void setUserEmailAddress(String userEmailAddress) {
-        this.userEmailAddress = userEmailAddress;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     /**
-     * @return the userRegistrationDate
+     * @param phoneNumber the phoneNumber to set
      */
-    public LocalDate getUserRegistrationDate() {
-        return userRegistrationDate;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /**
-     * @param userRegistrationDate the userRegistrationDate to set
+     * @return the emailAddress
      */
-    public void setUserRegistrationDate(LocalDate userRegistrationDate) {
-        this.userRegistrationDate = userRegistrationDate;
+    public String getEmailAddress() {
+        return emailAddress;
     }
+
+    /**
+     * @param emailAddress the emailAddress to set
+     */
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    /**
+     * @return the registrationDate
+     */
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    /**
+     * @param registrationDate the registrationDate to set
+     */
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+    
+
 }

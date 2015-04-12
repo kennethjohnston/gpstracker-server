@@ -4,16 +4,68 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <!-- Request Handlers -->
     <bean id="userRegistrationRequestHandler" class="com.gpstracker.server.input.handler.user.DefaultUserRegistrationRequestHandler">
+        <property name="messageValidators" ref="userRegistrationExternalValidators" />
+        <property name="converter" ref="userRegistrationToInternalConverter" />
     </bean>
     
     <bean id="userLoginRequestHandler" class="com.gpstracker.server.input.handler.user.DefaultUserLoginRequestHandler">
+        <property name="messageValidators" ref="userLoginExternalValidators" />
+        <property name="converter" ref="userLoginToInternalConverter" />
     </bean>
     
     <bean id="gpsLocationRegistrationRequestHandler" class="com.gpstracker.server.input.handler.gps.DefaultGpsLocationRegistrationRequestHandler">
+        <property name="messageValidators" ref="gpsLocationRegistrationExternalValidators" />
+        <property name="converter" ref="gpsLocationRegistrationToInternalConverter" />
     </bean>
     
     <bean id="gpsLocationHistoryRequestHandler" class="com.gpstracker.server.input.handler.gps.DefaultGpsLocationHistoryRequestHandler">
+        <property name="messageValidators" ref="gpsLocationHistoryExternalValidators" />
+        <property name="converter" ref="gpsLocationHistoryToInternalConverter" />
     </bean>
+    
+    <!-- Validators -->
+    <bean id="userRegistrationExternalValidators" class="java.util.ArrayList">
+        <constructor-arg>
+            <list value-type="com.gpstracker.server.api.input.handler.ExternalInputValidator">
+                <bean id="userRegistrationContainsFieldsValidator" class="com.gpstracker.server.input.handler.user.validator.UserRegistrationRequestContainsRequiredFieldsValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="userLoginExternalValidators" class="java.util.ArrayList">
+        <constructor-arg>
+            <list value-type="com.gpstracker.server.api.input.handler.ExternalInputValidator">
+                <bean id="userLoginContainsFieldsValidator" class="com.gpstracker.server.input.handler.user.validator.UserLoginRequestContainsRequiredFieldsValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+    
+     <bean id="gpsLocationRegistrationExternalValidators" class="java.util.ArrayList">
+        <constructor-arg>
+            <list value-type="com.gpstracker.server.api.input.handler.ExternalInputValidator">
+                <bean id="gpsLocationRegistrationContainsFieldsValidator" class="com.gpstracker.server.input.handler.gps.validator.GpsLocationRegisterRequestContainsRequiredFieldsValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="gpsLocationHistoryExternalValidators" class="java.util.ArrayList">
+        <constructor-arg>
+            <list value-type="com.gpstracker.server.api.input.handler.ExternalInputValidator">
+                <bean id="gpsLocationHistoryContainsFieldsValidator" class="com.gpstracker.server.input.handler.gps.validator.GpsLocationHistoryRequestContainsRequiredFieldsValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <!-- Converters -->
+	<bean id="userRegistrationToInternalConverter" class="com.gpstracker.server.input.handler.user.converter.UserRegistrationRequestConverter" />
+	
+	<bean id="userLoginToInternalConverter" class="com.gpstracker.server.input.handler.user.converter.UserLoginRequestConverter" />
+	   
+	<bean id="gpsLocationRegistrationToInternalConverter" class="com.gpstracker.server.input.handler.gps.converter.GpsLocationRegistrationConverter" />
+
+    <bean id="gpsLocationHistoryToInternalConverter" class="com.gpstracker.server.input.handler.gps.converter.GpsLocationHistoryConverter" />
+
 
 </beans>

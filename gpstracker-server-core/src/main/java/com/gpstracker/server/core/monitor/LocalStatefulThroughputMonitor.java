@@ -16,24 +16,28 @@ import com.gpstracker.server.api.core.ThroughputMonitor;
  */
 public class LocalStatefulThroughputMonitor implements ThroughputMonitor {
 
-    /** Singleton instance of the through put monitor. */
-    public LocalStatefulThroughputMonitor INSTANCE = new LocalStatefulThroughputMonitor();
+    /** Singleton instance of the through put monitor - set eagerly. */
+    private static final LocalStatefulThroughputMonitor INSTANCE = new LocalStatefulThroughputMonitor();
     /** Counts the operations received. */    
     private AtomicLong operationsRecieved = new AtomicLong(0);
     /** Counts the operations completed. */    
     private AtomicLong operationsCompleted = new AtomicLong(0);
+    
     /**
      *  Executor service for processing requests on an isolated thread. This is
      *  to allow separate worker threads to manage the statistics instead of forcing the
      *  calling thread to be side-tracked processing the statistic updates.
      */
     private ExecutorService requestWorker = Executors.newFixedThreadPool(50);
-    
-    
+       
     /**
      * Non-public constructor to support singleton usage.
      */
-    protected LocalStatefulThroughputMonitor() {
+    private LocalStatefulThroughputMonitor() {
+    }
+    
+    public static LocalStatefulThroughputMonitor getInstance() {
+        return INSTANCE;
     }
 
     @Override

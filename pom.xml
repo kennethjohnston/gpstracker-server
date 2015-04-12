@@ -47,7 +47,7 @@
     <properties>
         <!-- Application -->
         <spring.version>4.1.4.RELEASE</spring.version>
-        <log4j.version>2.1</log4j.version>
+        <log4j.version>1.2.17</log4j.version>
         <servlet.version>3.1.0</servlet.version>
         <javax-ws.version>2.2.10</javax-ws.version>
         <jaxws-spring.version>1.9</jaxws-spring.version>
@@ -55,8 +55,9 @@
         <activemq.version>5.11.1</activemq.version>
         <mysql.version>5.1.34</mysql.version>
         <jodatime.version>2.7</jodatime.version>
-        <aspectj.version>1.6.8</aspectj.version>
+        <commons-collections.version>4.0</commons-collections.version>
         <commons-pool.version>1.5.1</commons-pool.version>
+        <commins.lang.version>3.3.2</commins.lang.version>
         <!-- Testing -->
         <junit.version>4.1</junit.version>
         <easymock.version>3.3</easymock.version>
@@ -72,10 +73,10 @@
             <!-- Application Dependencies -->
             <!-- Logging -->
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
+			    <groupId>log4j</groupId>
+			    <artifactId>log4j</artifactId>
+			    <version>1.2.17</version>
+			</dependency>
             <!-- Web/Servlet -->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -162,15 +163,20 @@
                 <version>${jodatime.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjrt</artifactId>
-                <version>${aspectj.version}</version>
-            </dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>           
+			    <version>${commons-collections.version}</version>
+			</dependency>            
             <dependency>
                 <groupId>commons-pool</groupId>
                 <artifactId>commons-pool</artifactId>
                 <version>${commons-pool.version}</version>
             </dependency>
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+			    <version>${commins.lang.version}</version>
+			</dependency>
 
             <!-- Test Dependencies -->
             <dependency>
@@ -197,20 +203,32 @@
     </dependencyManagement>
 
     <!-- Project Dependencies (Inheritted by all sub-modules) -->
-    <dependencies>
-        <!-- Application Dependencies -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
+	<dependencies>
+		<!-- Application Dependencies -->
+		<dependency>
+			<groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>			
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 
-        <!-- Test Dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
     <!-- Project Build Settings -->
     <build>

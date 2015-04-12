@@ -6,12 +6,16 @@ import org.joda.time.LocalDateTime;
  * The Processing context define and maintains the processing state of a partially request, it should be passed
  * down through each layer of the architecture and updated accordingly.
  */
-public class ProcessingContext {
+public class ProcessingContext extends InternalEntity {
     
+    /**  */
+    private static final long serialVersionUID = 1L;
     /** Indicates if the processing should be executed asynchronously. */
     private boolean useAsynchronousProcessing;
     /** Indicates if the request to process can support callback on the client side. */
     private boolean asynchronousCallbackSupported;
+    /** Indicates if the request to process can support callback on the client side. */
+    private boolean asynchronousCallbackIssued;
     /** Indicates if the user request is authenticated. */
     private boolean requestAuthenticated;
     /** Indicates the processing stage of the current request processing. */
@@ -49,6 +53,20 @@ public class ProcessingContext {
         this.asynchronousCallbackSupported = asynchronousCallbackSupported;
     }
     
+    /**
+     * @return the asynchronousCallbackIssued
+     */
+    public boolean isAsynchronousCallbackIssued() {
+        return asynchronousCallbackIssued;
+    }
+
+    /**
+     * @param asynchronousCallbackIssued the asynchronousCallbackIssued to set
+     */
+    public void setAsynchronousCallbackIssued(boolean asynchronousCallbackIssued) {
+        this.asynchronousCallbackIssued = asynchronousCallbackIssued;
+    }
+
     /**
      * @return the requestAuthenticated
      */

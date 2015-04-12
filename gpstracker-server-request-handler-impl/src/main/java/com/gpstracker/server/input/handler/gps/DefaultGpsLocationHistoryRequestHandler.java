@@ -9,17 +9,4 @@ public class DefaultGpsLocationHistoryRequestHandler
         extends AbstractInputHandler<UserGpsLocationHistoryRequest, UserHistoricGlobalPositionRequirements>
         implements GpsLocationHistoryRequestHandler {
 
-    @Override
-    protected boolean isValidate(UserGpsLocationHistoryRequest message) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    protected UserHistoricGlobalPositionRequirements convertToInternal(
-            UserGpsLocationHistoryRequest message) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
 }

@@ -3,6 +3,8 @@ package com.gpstracker.server.webservice;
 import javax.jws.WebService;
 
 import com.gpstracker.server.model.external.request.UserLoginRequest;
+import com.gpstracker.server.model.external.response.RawUserResponse;
+import com.gpstracker.server.model.external.response.UserGpsLocationResponse;
 import com.gpstracker.server.model.external.response.UserLoginResponse;
 
 /**
@@ -18,6 +20,13 @@ public class UserLoginService extends AbstractWebService<UserLoginRequest, UserL
      * @return the user registration response
      */
     public UserLoginResponse loginVerification(final UserLoginRequest userloginRequest) {
-        return (UserLoginResponse) super.handleRequest(userloginRequest);
+        Object reponse = super.handleRequest(userloginRequest);
+        if (reponse instanceof RawUserResponse) {
+            UserLoginResponse userGpsLocationResponse = new UserLoginResponse();
+            userGpsLocationResponse.setCallBackResponse(((RawUserResponse) reponse).getCallBackResponse());            
+            reponse = userGpsLocationResponse;
+        }
+        
+        return (UserLoginResponse) reponse;
     }
 }

@@ -6,6 +6,7 @@ import com.gpstracker.server.model.internal.InternalEntity;
 
 public class ResponseGeneratorFrameworkHandler extends AbstractFrameworkHandler {
 
+    /** The response generator. */
     private ResponseGenerator<? super InternalEntity, ? super ExternalEntity> responseGenerator;
 
     @Override
@@ -13,6 +14,8 @@ public class ResponseGeneratorFrameworkHandler extends AbstractFrameworkHandler 
         return responseGenerator.generateResponse((InternalEntity) argument);
     }
 
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
      * @return the responseGenerator
      */

@@ -1,5 +1,9 @@
 package com.gpstracker.server.api.input.handler;
 
+import java.util.List;
+
+import com.gpstracker.server.model.external.ErrorCode;
+
 /**
  * Validates the external input received. Data received from an external entity is not governed by the
  * server the application, therefore strict validation should be performed to ensure that malformed, invalid
@@ -18,5 +22,5 @@ public interface ExternalInputValidator<T> {
      * @param message
      * @return true if the input is considered valid, false otherwise.
      */
-    public boolean validateMessage(T message);
+    public List<ErrorCode> validateMessage(T message);
 }

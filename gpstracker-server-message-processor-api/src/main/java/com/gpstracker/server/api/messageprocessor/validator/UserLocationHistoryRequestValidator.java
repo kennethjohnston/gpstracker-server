@@ -1,5 +1,7 @@
 package com.gpstracker.server.api.messageprocessor.validator;
 
-public interface UserLocationHistoryRequestValidator extends MessageValidator<Object> {
+import com.gpstracker.server.model.internal.request.UserHistoricGlobalPositionRequirements;
+
+public interface UserLocationHistoryRequestValidator extends MessageValidator<UserHistoricGlobalPositionRequirements> {
 
 }

@@ -1,12 +1,6 @@
 package com.gpstracker.server.model.external.response;
 
-import java.util.List;
-
-import com.gpstracker.server.model.external.ExternalEntity;
-
-public class UserRegistrationResponse extends AbstractUserResponse {
+public class UserRegistrationResponse extends RawUserResponse {
     
-    private boolean successfulRegistation;
-    private List<String> errors;
 
 }

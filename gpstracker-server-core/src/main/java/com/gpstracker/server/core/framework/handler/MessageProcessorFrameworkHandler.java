@@ -11,7 +11,9 @@ public class MessageProcessorFrameworkHandler extends AbstractFrameworkHandler {
     protected Object handleProcessing(Object argument) {
         return processor.processMessage((InternalEntity) argument);
     }
-    
+
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
      * @return the processor
      */

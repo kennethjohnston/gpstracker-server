@@ -4,6 +4,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import com.gpstracker.server.model.external.request.UserGpsLocationRegisterRequest;
+import com.gpstracker.server.model.external.response.RawUserResponse;
 import com.gpstracker.server.model.external.response.UserGpsLocationResponse;
 
 /**
@@ -21,6 +22,13 @@ public class GpsLocationRegistrationService extends AbstractWebService<UserGpsLo
      */
     @WebMethod
     public UserGpsLocationResponse registerLocation(final UserGpsLocationRegisterRequest userGpsLocationRegistrationRequest) {
-        return super.handleRequest(userGpsLocationRegistrationRequest) ;
+        Object reponse = super.handleRequest(userGpsLocationRegistrationRequest);
+        if (reponse instanceof RawUserResponse) {
+            UserGpsLocationResponse userGpsLocationResponse = new UserGpsLocationResponse();
+            userGpsLocationResponse.setCallBackResponse(((RawUserResponse) reponse).getCallBackResponse());            
+            reponse = userGpsLocationResponse;
+        }
+        
+        return (UserGpsLocationResponse) reponse;
     }  
 }

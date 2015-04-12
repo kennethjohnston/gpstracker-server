@@ -13,6 +13,8 @@ public class InputRequestFrameworkHandler extends AbstractFrameworkHandler {
         return inputHandler.handleInputMessage((ExternalEntity)argument);
     }
 
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
      * @return the inputHandler
      */

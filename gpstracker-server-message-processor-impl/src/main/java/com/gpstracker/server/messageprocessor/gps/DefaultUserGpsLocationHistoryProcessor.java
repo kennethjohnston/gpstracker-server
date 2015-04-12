@@ -1,7 +1,6 @@
 package com.gpstracker.server.messageprocessor.gps;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import com.gpstracker.server.api.messageprocessor.gps.UserGpsLocationHistoryProcessor;
 import com.gpstracker.server.api.service.gps.GpsService;
@@ -17,7 +16,7 @@ import com.gpstracker.server.model.internal.result.UserHistoricGlobalPositionPro
 public class DefaultUserGpsLocationHistoryProcessor extends AbstractMessageProcessor<UserHistoricGlobalPositionRequirements, UserHistoricGlobalPositionProcessingResult> implements UserGpsLocationHistoryProcessor {
 
     /** The logger to use for this class. */
-    private static final Logger LOGGER = LogManager.getLogger(DefaultUserGpsLocationHistoryProcessor.class);
+    private static final Logger LOGGER = Logger.getLogger(DefaultUserGpsLocationHistoryProcessor.class);
     /** The GPS service. */
     private GpsService gpsService;
 

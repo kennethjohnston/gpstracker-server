@@ -38,4 +38,46 @@ public class CallbackResponse extends ExternalEntity {
         this.callbackInterval = callbackInterval;
         this.authenicationCallbackKey = authenicationCallbackKey;
     }
+
+    /**
+     * @return the uniqueId
+     */
+    public long getUniqueId() {
+        return uniqueId;
+    }
+
+    /**
+     * @param uniqueId the uniqueId to set
+     */
+    public void setUniqueId(long uniqueId) {
+        this.uniqueId = uniqueId;
+    }
+
+    /**
+     * @return the callbackInterval
+     */
+    public long getCallbackInterval() {
+        return callbackInterval;
+    }
+
+    /**
+     * @param callbackInterval the callbackInterval to set
+     */
+    public void setCallbackInterval(long callbackInterval) {
+        this.callbackInterval = callbackInterval;
+    }
+
+    /**
+     * @return the authenicationCallbackKey
+     */
+    public long getAuthenicationCallbackKey() {
+        return authenicationCallbackKey;
+    }
+
+    /**
+     * @param authenicationCallbackKey the authenicationCallbackKey to set
+     */
+    public void setAuthenicationCallbackKey(long authenicationCallbackKey) {
+        this.authenicationCallbackKey = authenicationCallbackKey;
+    }
 }

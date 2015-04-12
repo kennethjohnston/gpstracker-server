@@ -18,9 +18,6 @@ import com.gpstracker.server.service.mq.api.MessageQueueService;
  */
 public class DefaultMessageQueueService implements MessageQueueService {
     
-    /**
-     * 
-     */
     private JmsTemplate jmsTemplate;
     private Queue queue;
     

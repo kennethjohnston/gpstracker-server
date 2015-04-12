@@ -8,8 +8,6 @@ public class UserIdentifier extends ExternalEntity {
     private String userId;
     /** The user name of the user. */
     private String userName;
-    /** The token provided to the user when they logged in. */
-    private String authenticationToken;
     
     //---------------------------------------------------------------------------------------------
     // Getters and Setters.
@@ -48,22 +46,4 @@ public class UserIdentifier extends ExternalEntity {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
-    /**
-     * Get the authentication token.
-     * 
-     * @return the authenticationToken
-     */
-    public String getAuthenticationToken() {
-        return authenticationToken;
-    }
-    
-    /**
-     * Set the authentication token.
-     * 
-     * @param authenticationToken the authenticationToken to set
-     */
-    public void setAuthenticationToken(String authenticationToken) {
-        this.authenticationToken = authenticationToken;
-    }    
 }

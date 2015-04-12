@@ -10,7 +10,8 @@ import com.gpstracker.server.model.internal.result.AbstractProcessingResult;
  * @param <T> the type of the message to process
  * @param <R> the type of the result from processing
  */
-public abstract class AbstractMessageProcessor<T extends InternalEntity, R extends AbstractProcessingResult> implements InternalMessageProcessor<T, R> {
+public abstract class AbstractMessageProcessor<T extends InternalEntity, R extends AbstractProcessingResult>
+        implements InternalMessageProcessor<T, R> {
 
     @Override
     public R processMessage(final T message) {
