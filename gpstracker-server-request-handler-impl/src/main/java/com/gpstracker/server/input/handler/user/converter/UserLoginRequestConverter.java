@@ -18,10 +18,8 @@ public class UserLoginRequestConverter implements ExternalInputConverter<UserLog
     @Override
     public UserLogin convert(final UserLoginRequest externalInput) {
         UserLogin userLogin = new UserLogin();
-        userLogin.setPassword(externalInput.getPassword());
-        if (externalInput.getUserIdentifier() != null) {
-            userLogin.setUserName(externalInput.getUserIdentifier().getUserName());
-        }
+        userLogin.setPassword(externalInput.getPassword());        
+        userLogin.setUserName(externalInput.getUserName());
         
         return userLogin;
     }

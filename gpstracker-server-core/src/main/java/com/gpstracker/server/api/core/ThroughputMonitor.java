@@ -1,5 +1,7 @@
 package com.gpstracker.server.api.core;
 
+import com.gpstracker.server.model.internal.ProcessingContext;
+
 /**
  * Defines the throughput monitor functionality. A throughput monitor should monitor
  * incoming requests and provide runtime statistics of the message processing and the
@@ -27,13 +29,43 @@ public interface ThroughputMonitor extends CoreOperation {
 
     /**
      * Gets the frequency of operations received by the application per second.
-     * @return
+     * 
+     * @return the frequency of operations received per second 
      */
     long getOperationRequestFrequencyPerSecond();
 
     /**
      * Gets the frequency of operations processed by the application per second.
-     * @return
+     * 
+     * @return the frequency of operations processed per second.
      */
     long getOperationProcessedFrequencyPerSecond();
+    
+    /**
+     * Gets the average processing time of the application.
+     * 
+     * @return the average processing time
+     */
+    long getAverageProcessingTime();
+    
+    /**
+     * Gets the current processing time expected.
+     * 
+     * @return the current processing time
+     */
+    long getCurrentExpectedProcessingTime();
+    
+    /**
+     * Notifies the monitor that a request has been received.
+     * 
+     * @param processingContext the processing context
+     */
+    void notifyRequestReceived(final ProcessingContext processingContext);
+    
+    /**
+     * Notifies the monitor that a request has been completed.
+     * 
+     * @param processingContext the processing context
+     */
+    void notifyRequestCompleted(final ProcessingContext processingContext);
 }

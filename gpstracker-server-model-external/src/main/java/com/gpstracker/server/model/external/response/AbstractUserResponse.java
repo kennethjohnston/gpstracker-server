@@ -1,15 +1,17 @@
 package com.gpstracker.server.model.external.response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.gpstracker.server.model.external.ExternalEntity;
 
 /**
- * @author kenneth
  *
  */
 public class AbstractUserResponse  extends ExternalEntity {
     
+    /** Serial version Id. */
+    private static final long serialVersionUID = 940258390733003740L;
     /** Indicates if the transaction was successful. */
     private boolean successful;
     /** List of errors associated with processing. */
@@ -34,33 +36,60 @@ public class AbstractUserResponse  extends ExternalEntity {
     }
     
     /**
-     * @return the errorList
+     * @return the errorList, never null
      */
     public List<String> getErrorList() {
+        if (errorList == null) {
+            errorList = new ArrayList<String>();
+        }
+        
         return errorList;
     }
     
     /**
      * @param errorList the errorList to set
      */
-    public void setErrorList(List<String> errorList) {
+    public void setErrorList(final List<String> errorList) {
         this.errorList = errorList;
     }
-    
+
+    /**
+     * 
+     * @param error
+     * @return
+     */
+    public boolean addError(final String error) {
+        return getErrorList().add(error);
+    }
+
     /**
      * @return the warningList
      */
     public List<String> getWarningList() {
+        if (warningList == null) {
+            warningList = new ArrayList<String>();
+        }
+
         return warningList;
     }
-    
+
     /**
-     * @param warningList the warningList to set
+     * @param warningList
+     *            the warningList to set
      */
-    public void setWarningList(List<String> warningList) {
+    public void setWarningList(final List<String> warningList) {
         this.warningList = warningList;
-    }   
-    
+    }
+
+    /**
+     * 
+     * @param warning
+     * @return
+     */
+    public boolean addWarning(final String warning) {
+        return getWarningList().add(warning);
+    }
+
     /**
      * @return the callBackResponse
      */

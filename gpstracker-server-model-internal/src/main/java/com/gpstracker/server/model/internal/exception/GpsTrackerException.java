@@ -11,4 +11,9 @@ package com.gpstracker.server.model.internal.exception;
  */
 public class GpsTrackerException extends Exception {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5150202848760971161L;
+
 }

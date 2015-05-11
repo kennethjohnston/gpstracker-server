@@ -4,10 +4,10 @@ import com.gpstracker.server.model.external.ExternalEntity;
 
 public class UserIdentifier extends ExternalEntity {
     
+    /** Serial version Id. */   
+    private static final long serialVersionUID = -7304304785356246558L;
     /** The user ID associated with the user. */
     private String userId;
-    /** The user name of the user. */
-    private String userName;
     
     //---------------------------------------------------------------------------------------------
     // Getters and Setters.
@@ -27,23 +27,5 @@ public class UserIdentifier extends ExternalEntity {
      */
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-    
-    /**
-     * Get the user name.
-     * 
-     * @return the userName
-     */
-    public String getUserName() {
-        return userName;
-    }
-    
-    /**
-     * Set the user name.
-     * 
-     * @param userName the userName to set
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 }

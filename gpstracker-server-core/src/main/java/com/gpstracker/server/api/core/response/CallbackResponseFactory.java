@@ -7,6 +7,10 @@ import com.gpstracker.server.model.external.response.CallbackResponse;
  */
 public interface CallbackResponseFactory {
 
+    /**
+     * Gets a call back response object.
+     * 
+     * @return a call back response object
+     */
     CallbackResponse getCallbackResponse();
-
 }

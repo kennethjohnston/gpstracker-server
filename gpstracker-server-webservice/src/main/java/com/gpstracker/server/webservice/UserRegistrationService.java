@@ -2,9 +2,9 @@ package com.gpstracker.server.webservice;
 
 import javax.jws.WebService;
 
+import com.gpstracker.server.model.external.ExternalEntity;
 import com.gpstracker.server.model.external.request.UserRegistrationRequest;
-import com.gpstracker.server.model.external.response.RawUserResponse;
-import com.gpstracker.server.model.external.response.UserGpsLocationResponse;
+import com.gpstracker.server.model.external.response.CallbackResponse;
 import com.gpstracker.server.model.external.response.UserRegistrationResponse;
 
 /**
@@ -17,15 +17,27 @@ public class UserRegistrationService extends AbstractWebService<UserRegistration
      * Registers a user account for the gps tracking service.
      *  
      * @param userRegistrationRequest the user registration request
-     * @return the user registration response
+     * @return the user registration response, may contain a callback response.
      */
     public UserRegistrationResponse registerUser(final UserRegistrationRequest userRegistrationRequest) {
-        Object reponse = super.handleRequest(userRegistrationRequest);
-        if (reponse instanceof RawUserResponse) {
-            UserRegistrationResponse userGpsLocationResponse = new UserRegistrationResponse();
-            userGpsLocationResponse.setCallBackResponse(((RawUserResponse) reponse).getCallBackResponse());            
-            reponse = userGpsLocationResponse;
-        }        
+        ExternalEntity reponse = super.handleRequest(userRegistrationRequest);
+        if (reponse instanceof CallbackResponse) {            
+            UserRegistrationResponse userRegistrationResponse = new UserRegistrationResponse();
+            userRegistrationResponse.setCallBackResponse((CallbackResponse) reponse);
+            userRegistrationResponse.setSuccessful(true);
+            reponse = userRegistrationResponse;
+        }
+        
         return (UserRegistrationResponse) reponse;
     }
+    
+    /**
+     * Web service that handles the callback request for the user registration response.
+     * 
+     * @param userRegistrationRequest the user registration request
+     * @return the user registration response
+     */
+    public UserRegistrationResponse registerUserResultCallback(final UserRegistrationRequest userRegistrationRequest) {
+        return (UserRegistrationResponse) super.handleCallback(userRegistrationRequest);
+    } 
 }

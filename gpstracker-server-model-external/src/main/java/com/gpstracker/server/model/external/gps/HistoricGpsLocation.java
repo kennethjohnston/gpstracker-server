@@ -1,10 +1,14 @@
 package com.gpstracker.server.model.external.gps;
 
+import com.gpstracker.server.model.external.ExternalEntity;
+
 /**
  * Represents an historic GPS location. The GPS location is associated with a date and time.
  */
-public class HistoricGpsLocation {
+public class HistoricGpsLocation extends ExternalEntity {
     
+    /** Serial version Id. */
+    private static final long serialVersionUID = 8630698023060836110L;
     /** The GPS location. */
     private GpsLocation gpsLocation;
     /** The date associated with GPS location. */

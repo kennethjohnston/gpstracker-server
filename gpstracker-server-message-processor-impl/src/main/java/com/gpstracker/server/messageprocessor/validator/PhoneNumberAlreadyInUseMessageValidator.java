@@ -1,7 +1,7 @@
 /*
  * GPS Tracker Server Application.
  */
-package com.gpstracker.server.messageprocessor.gps.validator;
+package com.gpstracker.server.messageprocessor.validator;
 
 import com.gpstracker.server.api.messageprocessor.validator.GlobalPositionValidator;
 import com.gpstracker.server.model.internal.gps.GlobalPosition;
@@ -9,7 +9,7 @@ import com.gpstracker.server.model.internal.gps.GlobalPosition;
 /**
  * 
  */
-public class UserNameMessageValidator implements GlobalPositionValidator {
+public class PhoneNumberAlreadyInUseMessageValidator implements GlobalPositionValidator {
 
     @Override
     public boolean validateMessage(final GlobalPosition globalPosition) {

@@ -10,6 +10,8 @@ import com.gpstracker.server.model.internal.InternalEntity;
  */
 public class GlobalPosition extends InternalEntity {
 
+    /** Serialisation Id. */
+    private static final long serialVersionUID = -7648211405093968042L;
     /** . */
     private Double longitude;
     /** . */
@@ -29,8 +31,7 @@ public class GlobalPosition extends InternalEntity {
     /**
      * Set the longitude.
      * 
-     * @param longitude
-     *            the longitude to set
+     * @param longitude the longitude to set
      */
     public void setLongitude(Double longitude) {
         this.longitude = longitude;

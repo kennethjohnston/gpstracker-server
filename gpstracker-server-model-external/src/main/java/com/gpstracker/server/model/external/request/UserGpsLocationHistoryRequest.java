@@ -5,6 +5,8 @@ package com.gpstracker.server.model.external.request;
  */
 public class UserGpsLocationHistoryRequest extends AbstractUserRequest {
     
+    /** Serial version Id. */
+    private static final long serialVersionUID = 7980359986116577567L;
     /** The start date range. */
     private String startDate;
     /** The end time. */

@@ -2,16 +2,8 @@ package com.gpstracker.server.webservice;
 
 import javax.jws.WebMethod;
 
-import org.apache.log4j.Logger;
-import org.joda.time.LocalDateTime;
-
-import com.gpstracker.server.api.core.InternalFrameworkHandler;
-import com.gpstracker.server.api.core.ThroughputMonitor;
-import com.gpstracker.server.core.monitor.LocalStatefulThroughputMonitor;
-import com.gpstracker.server.model.external.request.AbstractUserRequest;
-import com.gpstracker.server.model.external.response.AbstractUserResponse;
-import com.gpstracker.server.model.internal.ProcessingContext;
-import com.gpstracker.server.model.internal.ProcessingStageType;
+import com.gpstracker.server.api.core.EntryPointFrameworkHandler;
+import com.gpstracker.server.model.external.ExternalEntity;
 
 /**
  * Defines an abstract web service that handles user requests and delegates to a framework handler.
@@ -19,12 +11,10 @@ import com.gpstracker.server.model.internal.ProcessingStageType;
  * @param <T> the type of request to process
  * @param <R> the type of response to return
  */
-public abstract class AbstractWebService<T extends AbstractUserRequest, R extends AbstractUserResponse> {
+public abstract class AbstractWebService<T extends ExternalEntity, R extends ExternalEntity> {
 
-    /** Logger. */
-    private static final Logger LOGGER = Logger.getLogger(AbstractWebService.class);
-    /** The user registration request handler. */
-    private InternalFrameworkHandler handler;
+    /** The entry point framework handler to the application. */
+    private EntryPointFrameworkHandler handler;
         
     /**
      * Web service that handles the GPS location requests.
@@ -32,49 +22,41 @@ public abstract class AbstractWebService<T extends AbstractUserRequest, R extend
      * @param gpsLocationthe external gps location input
      * @return true if the request was successful, false otherwise
      */
+    @SuppressWarnings("unchecked")
     public R handleRequest(final T request) {
-        LOGGER.info("Recieved Request \n\n");
-        ProcessingContext context = createProcessingContext(request);
-        
-        return (R) handler.handle(context, request);
+        return (R) handler.handle(request);
     }
-
     
-    //--------------------------------------------------------------------------------------------- 
     /**
-     * Creates a processing context that will be used to determine how the application is to be processed.
-     * @param request 
+     * Web service that handles the a client calling back for GPS location request response.
      * 
-     * @return the processing context associated with the request.
+     * @param gpsLocationthe external gps location input
+     * @return true if the request was successful, false otherwise
      */
-    protected ProcessingContext createProcessingContext(final AbstractUserRequest request) {
-        ProcessingContext context = new ProcessingContext();        
-        context.setAsynchronousCallbackSupported(request.isCallBackAllowed());
-        context.setProcessingStartTime(LocalDateTime.now());
-        context.setProcessingStage(ProcessingStageType.REQUEST_RECIEVED);
-        
-        return context;
-    }
+    @SuppressWarnings("unchecked")
+    public R handleCallback(final T request) {        
+        return (R) handler.handleCallback(request);
+    }     
 
     // ---------------------------------------------------------------------------------------------
     // Getter and Setter methods
     /**
-     * Gets the internal framework handler.
+     * Gets the entry point framework handler.
      * 
-     * @return the internal framework handler.
+     * @return the entry point framework handler.
      */
     @WebMethod(exclude = true)
-    public InternalFrameworkHandler getHandler() {
+    public EntryPointFrameworkHandler getHandler() {
         return handler;
     }
 
     /**
-     * Sets the internal framework handler.
+     * Sets the entry point framework handler.
      * 
-     * @param handler internal framework handler to set
+     * @param handler entry point framework handler to set
      */
     @WebMethod(exclude = true)
-    public void setHandler(final InternalFrameworkHandler handler) {
+    public void setHandler(final EntryPointFrameworkHandler handler) {
         this.handler = handler;
     }
 }

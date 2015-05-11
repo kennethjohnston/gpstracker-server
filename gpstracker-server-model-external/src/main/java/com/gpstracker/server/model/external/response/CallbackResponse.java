@@ -13,44 +13,42 @@ import com.gpstracker.server.model.external.ExternalEntity;
  */
 public class CallbackResponse extends ExternalEntity {
 
-    /** A unique Id to indentify the callback request. */
-    private long uniqueId;
+    /** Serial version Id. */
+    private static final long serialVersionUID = -4315686836361066298L;
+    /** A unique callback response Id to identify the callback request. */
+    private String callbackResponseId;
     /** The interval for the client to wait before calling back. */
     private long callbackInterval;
-    /** The callback authenication key. This key is authenicate the callback is no high-jacked. */
-    private long authenicationCallbackKey;
-
+   
     /**
      * Default constructor.
      */
     public CallbackResponse() {
 
     }
-
+    
     /**
-     * Argument based constructor.
-     * @param uniqueId the unique id
-     * @param callbackInterval the call back interval in milli-seconds
-     * @param authenicationCallbackKey the authentication key
+     * Default constructor.
      */
-    public CallbackResponse(long uniqueId, long callbackInterval, long authenicationCallbackKey) {
-        this.uniqueId = uniqueId;
+    public CallbackResponse(final String callbackResponseId, final long callbackInterval) {
+        this.callbackResponseId = callbackResponseId;
         this.callbackInterval = callbackInterval;
-        this.authenicationCallbackKey = authenicationCallbackKey;
+    }
+
+    //---------------------------------------------------------------------------------------------
+    // 
+    /**
+     * @return the callbackResponseId
+     */
+    public String getCallbackResponseId() {
+        return callbackResponseId;
     }
 
     /**
-     * @return the uniqueId
+     * @param callbackResponseId the callbackResponseId to set
      */
-    public long getUniqueId() {
-        return uniqueId;
-    }
-
-    /**
-     * @param uniqueId the uniqueId to set
-     */
-    public void setUniqueId(long uniqueId) {
-        this.uniqueId = uniqueId;
+    public void setCallbackResponseId(String callbackResponseId) {
+        this.callbackResponseId = callbackResponseId;
     }
 
     /**
@@ -65,19 +63,5 @@ public class CallbackResponse extends ExternalEntity {
      */
     public void setCallbackInterval(long callbackInterval) {
         this.callbackInterval = callbackInterval;
-    }
-
-    /**
-     * @return the authenicationCallbackKey
-     */
-    public long getAuthenicationCallbackKey() {
-        return authenicationCallbackKey;
-    }
-
-    /**
-     * @param authenicationCallbackKey the authenicationCallbackKey to set
-     */
-    public void setAuthenicationCallbackKey(long authenicationCallbackKey) {
-        this.authenicationCallbackKey = authenicationCallbackKey;
     }
 }

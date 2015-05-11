@@ -1,6 +1,8 @@
 package com.gpstracker.server.model.internal;
 
 import org.joda.time.LocalDateTime;
+import org.joda.time.Period;
+import org.joda.time.PeriodType;
 
 /**
  * The Processing context define and maintains the processing state of a partially request, it should be passed
@@ -8,23 +10,84 @@ import org.joda.time.LocalDateTime;
  */
 public class ProcessingContext extends InternalEntity {
     
-    /**  */
-    private static final long serialVersionUID = 1L;
+    /** Serialistion Id. */
+    private static final long serialVersionUID = -653508315694905836L;
+    /** The unique processing Id. */
+    private String processingId;
+    /** The related user Id. */
+    private String userId;
     /** Indicates if the processing should be executed asynchronously. */
     private boolean useAsynchronousProcessing;
     /** Indicates if the request to process can support callback on the client side. */
     private boolean asynchronousCallbackSupported;
     /** Indicates if the request to process can support callback on the client side. */
     private boolean asynchronousCallbackIssued;
-    /** Indicates if the user request is authenticated. */
-    private boolean requestAuthenticated;
+    /** Indicates if the processing has completed. */
+    private boolean processingComplete;
+    /** Indicates if the processing has completed. */
+    private boolean processingCompletedSuccessfully;
     /** Indicates the processing stage of the current request processing. */
     private ProcessingStageType processingStage;
     /** The time processing began. */
     private LocalDateTime processingStartTime;
     /** The time processing completed. */
     private LocalDateTime processingCompleteTime;
-    
+
+    /**
+     * Default contructor.
+     */
+    public ProcessingContext() {
+
+    }
+
+    /**
+     * Calculates the processing time in milli-seconds of the current processing has or is taking
+     * the time is calculated based on the time between the time the started and either the time
+     * the request was completed, or the current time if the process is not yet completed.
+     * 
+     * @return the processing time taken or is currently taking
+     */
+    public long calculateProcessingTime() {
+        LocalDateTime endTime = null;
+        if (processingCompleteTime != null) {
+            endTime = processingCompleteTime;
+        } else {
+            endTime = LocalDateTime.now();
+        }
+
+        return new Period(processingStartTime, endTime, PeriodType.millis()).getMillis();
+    }
+
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
+    /**
+     * @return the processingId
+     */
+    public String getProcessingId() {
+        return processingId;
+    }
+
+    /**
+     * @param processingId the processingId to set
+     */
+    public void setProcessingId(final String processingId) {
+        this.processingId = processingId;
+    }
+
+    /**
+     * @return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     /**
      * @return the useAsynchronousProcessing
      */
@@ -66,21 +129,35 @@ public class ProcessingContext extends InternalEntity {
     public void setAsynchronousCallbackIssued(boolean asynchronousCallbackIssued) {
         this.asynchronousCallbackIssued = asynchronousCallbackIssued;
     }
+    
+    /**
+     * @return the processingComplete
+     */
+    public boolean isProcessingComplete() {
+        return processingComplete;
+    }
 
     /**
-     * @return the requestAuthenticated
+     * @param processingComplete the processingComplete to set
      */
-    public boolean isRequestAuthenticated() {
-        return requestAuthenticated;
+    public void setProcessingComplete(boolean processingComplete) {
+        this.processingComplete = processingComplete;
     }
-    
+
     /**
-     * @param requestAuthenticated the requestAuthenticated to set
+     * @return the processingCompletedSuccessfully
      */
-    public void setRequestAuthenticated(final boolean requestAuthenticated) {
-        this.requestAuthenticated = requestAuthenticated;
+    public boolean isProcessingCompletedSuccessfully() {
+        return processingCompletedSuccessfully;
     }
-    
+
+    /**
+     * @param processingCompletedSuccessfully the processingCompletedSuccessfully to set
+     */
+    public void setProcessingCompletedSuccessfully(boolean processingCompletedSuccessfully) {
+        this.processingCompletedSuccessfully = processingCompletedSuccessfully;
+    }
+
     /**
      * @return the processingStage
      */

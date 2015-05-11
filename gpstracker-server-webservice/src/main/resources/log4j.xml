@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true"
+    xmlns:log4j='http://jakarta.apache.org/log4j/'>
+ 
+    <appender name="MainLogFile" class="org.apache.log4j.RollingFileAppender">
+       <param name="append" value="false" />
+       <param name="maxFileSize" value="250MB" />
+       <param name="maxBackupIndex" value="5" />
+       <!-- For Tomcat -->
+       <param name="file" value="${catalina.home}/logs/GPS_Tacker.log" />
+       <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" 
+            value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+       </layout>
+    </appender>
+    
+    <appender name="MetricsInputLogFile" class="org.apache.log4j.RollingFileAppender">
+       <param name="append" value="false" />
+       <param name="maxFileSize" value="250MB" />
+       <param name="maxBackupIndex" value="5" />
+       <param name="file" value="${catalina.home}/logs/Metrics-InputRequests.log" />
+       <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" 
+            value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+       </layout>
+    </appender>
+    
+    <appender name="MetricsRequestsProcessedLogFile" class="org.apache.log4j.RollingFileAppender">
+       <param name="append" value="false" />
+       <param name="maxFileSize" value="250MB" />
+       <param name="maxBackupIndex" value="5" />
+       <param name="file" value="${catalina.home}/logs/Metrics-RequestsProcessed.log" />
+       <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" 
+            value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+       </layout>
+    </appender>
+    
+    <appender name="DBLogFile" class="org.apache.log4j.RollingFileAppender">
+       <param name="append" value="false" />
+       <param name="maxFileSize" value="10KB" />
+       <param name="maxBackupIndex" value="5" />
+       <param name="file" value="${catalina.home}/logs/database.log" />
+       <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" 
+            value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+       </layout>
+    </appender>
+    
+    <appender name="EmulatorLogFile" class="org.apache.log4j.RollingFileAppender">
+       <param name="append" value="false" />
+       <param name="maxFileSize" value="250MB" />
+       <param name="maxBackupIndex" value="5" />
+       <param name="file" value="${catalina.home}/logs/Emulator.log" />
+       <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" 
+            value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+       </layout>
+    </appender>
+
+	<logger name="Metrics.Input">
+		<level value="DEBUG" />
+		<appender-ref ref="MetricsInputLogFile" />
+	</logger>
+	
+	<logger name="Metrics.Completed">
+        <level value="DEBUG" />
+        <appender-ref ref="MetricsRequestsProcessedLogFile" />
+    </logger>
+    
+	<logger name="Emulator">
+        <level value="DEBUG" />
+        <appender-ref ref="EmulatorLogFile" />
+    </logger>
+ 
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="MainLogFile" />
+    </root>
+ 
+</log4j:configuration>

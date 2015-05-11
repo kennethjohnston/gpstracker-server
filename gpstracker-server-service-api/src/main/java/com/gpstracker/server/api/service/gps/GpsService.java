@@ -2,7 +2,7 @@ package com.gpstracker.server.api.service.gps;
 
 import java.util.List;
 
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 import com.gpstracker.server.model.internal.gps.GlobalPosition;
 import com.gpstracker.server.model.internal.user.UserGlobalPosition;
@@ -18,10 +18,9 @@ public interface GpsService {
     
     boolean update(UserGlobalPosition globalPosition);
     
-    List<GlobalPosition> loadByUserName(String userName);
+    List<GlobalPosition> loadAllByUserName(String userName);
     
-    List<GlobalPosition> loadByUserId(long userId);
+    List<GlobalPosition> loadAllByUserId(String userId);
     
-    List<GlobalPosition> loadByUserIdAndDateRange(long userId, LocalDate startDate, LocalDate endDate);
-
+    List<GlobalPosition> loadAllByUserIdAndDateRange(String userId, DateTime startDate, DateTime endDate);
 }

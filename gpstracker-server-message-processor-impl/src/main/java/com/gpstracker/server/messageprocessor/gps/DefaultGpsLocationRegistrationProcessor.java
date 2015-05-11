@@ -27,14 +27,23 @@ public class DefaultGpsLocationRegistrationProcessor extends AbstractMessageProc
      * @return the external response to send back to user
      */
     @Override
-    public UserGlobalPositionProcessingResult processInternal(final UserGlobalPosition userGlobalPosition) {
+    public UserGlobalPositionProcessingResult createInitialResult(final UserGlobalPosition userGlobalPosition) {
+        UserGlobalPositionProcessingResult result = new UserGlobalPositionProcessingResult();
         // Log Metrics
         // Validate Message.
+
         // Store Message.
-        gpsService.store(userGlobalPosition);
+        boolean stored = gpsService.store(userGlobalPosition);
+        if (stored) {
+            result.setSucessfullyProcessed(true);
+        } else {
+            result.setSucessfullyProcessed(false);
+            result.addError("Could not store location");
+        }
+
         // Process input.
 
-        return new UserGlobalPositionProcessingResult();
+        return result;
     }
 
     //---------------------------------------------------------------------------------------------

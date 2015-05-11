@@ -9,51 +9,58 @@ public class DefaultUserService implements UserService {
     /** The user DAO persister. */
     private UserDAO persister;
 
+    //---------------------------------------------------------------------------------------------
     @Override
-    public boolean store(User user) {
+    public boolean store(final User user) {
         return persister.store(user);
     }
     
     @Override
-    public boolean delete(User user) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean delete(final User user) {
+        return persister.delete(user);
     }
 
     @Override
-    public boolean update(User user) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean update(final User user) {
+        return persister.update(user);
     }
 
     @Override
-    public User loadById(long id) {
-        // TODO Auto-generated method stub
-        return null;
+    public User loadById(final String id) {
+        return persister.loadByUserId(id);
     }
 
     @Override
-    public User loadByEmail(String email) {
-        // TODO Auto-generated method stub
-        return null;
+    public User loadByUserName(final String userName) {
+        return persister.loadByUserName(userName);
+    }
+    
+    @Override
+    public User loadByEmail(final String email) {
+        return persister.loadByEmailAddress(email);
     }
 
     @Override
-    public User loadByPhone(String phoneNumber) {
-        // TODO Auto-generated method stub
-        return null;
+    public User loadByPhone(final String phoneNumber) {
+        return persister.loadByPhoneNumber(phoneNumber);
     }
 
     @Override
-    public boolean isUserEmailAddressInUse(String emailAddress) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean isUserNameInUse(final String userName) {
+        User user = loadByUserName(userName);
+        return user != null;
+    }
+    
+    @Override
+    public boolean isUserEmailAddressInUse(final String emailAddress) {
+        User user = loadByEmail(emailAddress);
+        return user != null;
     }
 
     @Override
-    public boolean isUserPhoneNumberInUse(String phoneNumber) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean isUserPhoneNumberInUse(final String phoneNumber) {
+        User user = loadByPhone(phoneNumber);
+        return user != null;
     }
 
     //---------------------------------------------------------------------------------------------
@@ -68,7 +75,7 @@ public class DefaultUserService implements UserService {
     /**
      * @param persister the persister to set
      */
-    public void setPersister(UserDAO persister) {
+    public void setPersister(final UserDAO persister) {
         this.persister = persister;
     }
 }

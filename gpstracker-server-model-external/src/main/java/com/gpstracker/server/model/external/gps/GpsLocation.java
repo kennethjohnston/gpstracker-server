@@ -9,6 +9,8 @@ import com.gpstracker.server.model.external.ExternalEntity;
  */
 public class GpsLocation extends ExternalEntity {
     
+    /** Serial version Id. */
+    private static final long serialVersionUID = 2939273021174373731L;
     /** The longitude. */
     private String longitude;
     /** The latitude. */

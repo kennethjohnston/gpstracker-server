@@ -1,12 +1,18 @@
-package com.gpstracker.server.core.framework.handler;
+package com.gpstracker.server.core.framework;
 
 import com.gpstracker.server.api.messageprocessor.InternalMessageProcessor;
 import com.gpstracker.server.model.internal.InternalEntity;
 
-public class MessageProcessorFrameworkHandler extends AbstractFrameworkHandler {
+public class MessageProcessorFrameworkHandler extends AbstractInternalFrameworkHandler {
     
     private InternalMessageProcessor<? super InternalEntity, ? super InternalEntity> processor;
 
+    /**
+     * Handles the business logic processing for the message processor.
+     * 
+     * @param argument the input argument
+     * @return the response from processing
+     */
     @Override
     protected Object handleProcessing(Object argument) {
         return processor.processMessage((InternalEntity) argument);
@@ -15,6 +21,8 @@ public class MessageProcessorFrameworkHandler extends AbstractFrameworkHandler {
     //---------------------------------------------------------------------------------------------
     // Getters and Setters
     /**
+     * Gets the processor.
+     * 
      * @return the processor
      */
     public InternalMessageProcessor<? super InternalEntity, ? super InternalEntity> getProcessor() {
@@ -22,6 +30,8 @@ public class MessageProcessorFrameworkHandler extends AbstractFrameworkHandler {
     }
 
     /**
+     * Sets the processor.
+     * 
      * @param processor the processor to set
      */
     public void setProcessor(InternalMessageProcessor<? super InternalEntity, ? super InternalEntity> processor) {

@@ -9,11 +9,27 @@ import com.gpstracker.server.model.internal.InternalEntity;
  */
 public class GlobalPositionList extends InternalEntity {
 
-    private static final long serialVersionUID = 1L;
-    
     /** List of global positions.  */
     private List<GlobalPosition> globalPositionList;
 
+    /**
+     * Default constructor.
+     */
+    public GlobalPositionList() {
+        
+    }
+    
+    /**
+     * Argument constructor.
+     * 
+     * @param globalPositionList global position list
+     */
+    public GlobalPositionList(List<GlobalPosition> globalPositionList) {
+        this.globalPositionList = globalPositionList;
+    }
+     
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
      * @return the globalPositionList
      */

@@ -2,7 +2,6 @@ package com.gpstracker.server.model.internal.mq;
 
 import java.io.Serializable;
 
-import com.gpstracker.server.model.internal.InternalEntity;
 import com.gpstracker.server.model.internal.ProcessingContext;
 
 
@@ -14,7 +13,7 @@ public class InternalMessage implements Serializable {
     private static final long serialVersionUID = 1L;
     private InternalMessageType messageType;
     private ProcessingContext processingContext;
-    private InternalEntity messageContent;
+    private Object messageContent;
         
     /**
      * Default constructor.
@@ -26,7 +25,20 @@ public class InternalMessage implements Serializable {
     /**
      * Argument constructor.
      */
-    public InternalMessage (InternalMessageType internalMessageType, ProcessingContext processingContext, InternalEntity messageContent) {
+    public InternalMessage(
+            final ProcessingContext processingContext,
+            final Object messageContent) {
+        this.processingContext = processingContext;
+        this.messageContent = messageContent;
+    }
+    
+    /**
+     * Argument constructor.
+     */
+    public InternalMessage(
+            final InternalMessageType internalMessageType,
+            final ProcessingContext processingContext,
+            final Object messageContent) {
         this.messageType = internalMessageType;
         this.processingContext = processingContext;
         this.messageContent = messageContent;
@@ -65,13 +77,13 @@ public class InternalMessage implements Serializable {
     /**
      * @return the messageContent
      */
-    public InternalEntity getMessageContent() {
+    public Object getMessageContent() {
         return messageContent;
     }
     /**
      * @param messageContent the messageContent to set
      */
-    public void setMessageContent(InternalEntity messageContent) {
+    public void setMessageContent(Object messageContent) {
         this.messageContent = messageContent;
     }
 }

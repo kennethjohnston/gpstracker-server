@@ -5,7 +5,9 @@
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="/WEB-INF/config/properties/dev.properties" />
+		<!-- <property name="location" value="/WEB-INF/config/properties/dev.properties" /> -->
+	    <property name="location" value="/WEB-INF/config/properties/qa.properties" />
+		<!-- <property name="location" value="/WEB-INF/config/properties/production.properties" /> -->  
 	</bean>
 
 	<import resource="InputRequestHandleContext.xml" />
@@ -16,110 +18,190 @@
     <!-- **************************************** -->
 	<!--       User Registration Framework        -->
 	<!-- **************************************** -->
-	<bean id="userRegistrationInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.handler.InputRequestFrameworkHandler">
+	<bean id="userRegistrationFrameworkHandler" class="com.gpstracker.server.core.framework.GenericEntryPointFrameworkHandler">
+        <property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
+        <property name="mqService" ref="mqService" />
+        <property name="nextDestinationQueue" value="USER_REGISTRATION_REQUEST_INPUT" />
+        <property name="nextFrameworkHandler" ref="userRegistrationInputHandlerFrameworkHandler" />
+        <property name="allowAsynchonousProcessing" value="false" />
+    </bean>
+    
+	<bean id="userRegistrationInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.InputRequestFrameworkHandler">
 		<property name="inputHandler" ref="userRegistrationRequestHandler" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_REGISTRATION_MESSAGE_PROCESSOR_INPUT" />
+		<property name="nextDestinationQueue" value="USER_REGISTRATION_MESSAGE_PROCESSOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="userRegistrationMessageProcessorFrameworkHandler" />
 	</bean>
 
-	<bean id="userRegistrationMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.MessageProcessorFrameworkHandler">
+	<bean id="userRegistrationMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.MessageProcessorFrameworkHandler">
 		<property name="processor" ref="userRegistrationProcessor" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_REGISTRATION_RESPONSE_GENERATOR_INPUT" />
+		<property name="nextDestinationQueue" value="USER_REGISTRATION_RESPONSE_GENERATOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="userRegistrationResponseGeneratorFrameworkHandler" />
 	</bean>
 
-	<bean id="userRegistrationResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.ResponseGeneratorFrameworkHandler">
+	<bean id="userRegistrationResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.ResponseGeneratorFrameworkHandler">
 		<property name="responseGenerator" ref="userRegistrationResponseGenerator" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_REGISTRATION_RESPONSE_OUTPUT" />
+		<property name="nextDestinationQueue" value="USER_REGISTRATION_RESPONSE_OUTPUT" />
 	</bean>
 
 	<!-- **************************************** -->
 	<!--     User Login Verification Framework    -->
 	<!-- **************************************** -->
-	<bean id="userLoginInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.handler.InputRequestFrameworkHandler">
+	<bean id="userLoginFrameworkHandler" class="com.gpstracker.server.core.framework.GenericEntryPointFrameworkHandler">
+        <property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
+        <property name="mqService" ref="mqService" />
+        <property name="nextDestinationQueue" value="USER_LOGIN_REQUEST_INPUT" />
+        <property name="nextFrameworkHandler" ref="userLoginInputHandlerFrameworkHandler" />
+        <property name="allowAsynchonousProcessing" value="false" />
+    </bean>
+    
+	<bean id="userLoginInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.InputRequestFrameworkHandler">
 		<property name="inputHandler" ref="userLoginRequestHandler" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_LOGIN_MESSAGE_PROCESSOR_INPUT" />
+		<property name="nextDestinationQueue" value="USER_LOGIN_MESSAGE_PROCESSOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="userLoginMessageProcessorFrameworkHandler" />
 	</bean>
 
-	<bean id="userLoginMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.MessageProcessorFrameworkHandler">
+	<bean id="userLoginMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.MessageProcessorFrameworkHandler">
 		<property name="processor" ref="userLoginProcessor" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_LOGIN_RESPONSE_GENERATOR_INPUT" />
+		<property name="nextDestinationQueue" value="USER_LOGIN_RESPONSE_GENERATOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="userLoginResponseGeneratorFrameworkHandler" />
 	</bean>
 
-	<bean id="userLoginResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.ResponseGeneratorFrameworkHandler">
+	<bean id="userLoginResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.ResponseGeneratorFrameworkHandler">
 		<property name="responseGenerator" ref="userLoginResponseGenerator" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="USER_LOGIN_RESPONSE_OUTPUT" />
+		<property name="nextDestinationQueue" value="USER_LOGIN_RESPONSE_OUTPUT" />
 	</bean>
 	
 	<!-- **************************************** -->
 	<!-- User GPS Location Registration Framework -->
     <!-- **************************************** -->
-	<bean id="gpsRegistrationInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.handler.InputRequestFrameworkHandler">
+    <bean id="gpsRegistrationFrameworkHandler" class="com.gpstracker.server.core.framework.GenericEntryPointFrameworkHandler">
+        <property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
+        <property name="mqService" ref="mqService" />
+        <property name="nextDestinationQueue" value="GPS_REGISTRATION_REQUEST_INPUT" />
+        <property name="nextFrameworkHandler" ref="gpsRegistrationInputHandlerFrameworkHandler" />
+        <property name="allowAsynchonousProcessing" value="false" />
+    </bean>
+    
+    <!-- 
+    <bean id="gpsRegistrationInputHandlerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="jmsFactory"/>
+        <property name="destinationName" value="GPS_REGISTRATION_REQUEST_INPUT"/>
+        <property name="messageListener" ref="gpsRegistrationInputHandlerFrameworkHandler" />
+        <property name="maxConcurrentConsumers" value="50" />
+    </bean>
+     -->
+     
+	<bean id="gpsRegistrationInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.InputRequestFrameworkHandler">
 		<property name="inputHandler" ref="gpsLocationRegistrationRequestHandler" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_REGISTRATION_MESSAGE_PROCESSOR_INPUT" />
+		<property name="nextDestinationQueue" value="GPS_REGISTRATION_MESSAGE_PROCESSOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="gpsRegistrationMessageProcessorFrameworkHandler" />
 	</bean>
 
+	<!--
 	<bean id="gpsRegistrationMessageProcessorContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="jmsFactory"/>
         <property name="destinationName" value="GPS_REGISTRATION_MESSAGE_PROCESSOR_INPUT"/>
         <property name="messageListener" ref="gpsRegistrationMessageProcessorFrameworkHandler" />
+        <property name="maxConcurrentConsumers" value="50" />
     </bean>
-    
-	<bean id="gpsRegistrationMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.MessageProcessorFrameworkHandler">
+     -->
+     
+	<bean id="gpsRegistrationMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.MessageProcessorFrameworkHandler">
 		<property name="processor" ref="gpsRegistrationProcessor" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_REGISTRATION_RESPONSE_GENERATOR_INPUT" />
+		<property name="nextDestinationQueue" value="GPS_REGISTRATION_RESPONSE_GENERATOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="gpsRegistrationResponseGeneratorFrameworkHandler" />
 	</bean>
 	
+	<!--
 	<bean id="gpsRegistrationResponseGeneratorContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="jmsFactory"/>
         <property name="destinationName" value="GPS_REGISTRATION_RESPONSE_GENERATOR_INPUT"/>
         <property name="messageListener" ref="gpsRegistrationResponseGeneratorFrameworkHandler" />
+        <property name="maxConcurrentConsumers" value="50" />
     </bean>
-
-	<bean id="gpsRegistrationResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.ResponseGeneratorFrameworkHandler">
+	 -->
+	 
+	<bean id="gpsRegistrationResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.ResponseGeneratorFrameworkHandler">
 		<property name="responseGenerator" ref="gpsRegistrationResponseGenerator" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_REGISTRATION_RESPONSE_OUTPUT" />
+		<property name="nextDestinationQueue" value="GPS_REGISTRATION_RESPONSE_OUTPUT" />
 	</bean>
 
 	<!-- **************************************** -->	
 	<!-- User Historic Location Request Framework -->
 	<!-- **************************************** -->
-	<bean id="gpsLocationHistoryInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.handler.InputRequestFrameworkHandler">
+    <bean id="gpsLocationHistoryFrameworkHandler" class="com.gpstracker.server.core.framework.GenericEntryPointFrameworkHandler">
+        <property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
+        <property name="mqService" ref="mqService" />
+        <property name="nextDestinationQueue" value="GPS_LOCATION_HISTORY_REQUEST_INPUT" />
+        <property name="nextFrameworkHandler" ref="gpsLocationHistoryInputHandlerFrameworkHandler" />
+        <property name="allowAsynchonousProcessing" value="false" />
+    </bean>
+    
+	<bean id="gpsLocationHistoryInputHandlerFrameworkHandler" class="com.gpstracker.server.core.framework.InputRequestFrameworkHandler">
 		<property name="inputHandler" ref="gpsLocationHistoryRequestHandler" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_LOCATION_HISTORY_MESSAGE_PROCESSOR_INPUT" />
+		<property name="nextDestinationQueue" value="GPS_LOCATION_HISTORY_MESSAGE_PROCESSOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="gpsLocationHistoryMessageProcessorFrameworkHandler" />
 	</bean>
 
-	<bean id="gpsLocationHistoryMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.MessageProcessorFrameworkHandler">
+	<bean id="gpsLocationHistoryMessageProcessorFrameworkHandler" class="com.gpstracker.server.core.framework.MessageProcessorFrameworkHandler">
 		<property name="processor" ref="gpsLocationHistoryProcessor" />
+		<property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_LOCATION_HISTORY_RESPONSE_GENERATOR_INPUT" />
+		<property name="nextDestinationQueue" value="GPS_LOCATION_HISTORY_RESPONSE_GENERATOR_INPUT" />
 		<property name="nextFrameworkHandler" ref="gpsLocationHistoryResponseGeneratorFrameworkHandler" />
 	</bean>
 
-	<bean id="gpsLocationHistoryResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.handler.ResponseGeneratorFrameworkHandler">
+	<bean id="gpsLocationHistoryResponseGeneratorFrameworkHandler" class="com.gpstracker.server.core.framework.ResponseGeneratorFrameworkHandler">
         <property name="responseGenerator" ref="gpsLocationHistoryResponseGenerator" />
+        <property name="throughputMonitor" ref="throughputMonitor" />
+        <property name="resultStore" ref="callbackResultStore" />
 		<property name="mqService" ref="mqService" />
-		<property name="nextDistintationQueue" value="GPS_LOCATION_HISTORY_RESPONSE_OUTPUT" />
+		<property name="nextDestinationQueue" value="GPS_LOCATION_HISTORY_RESPONSE_OUTPUT" />
+	</bean>
+
+	<!-- **************************************** -->   
+    <!--              Common Beans                -->
+    <!-- **************************************** -->
+	<bean id="callbackResultStore" class="com.gpstracker.server.core.store.CallbackDatabaseStore">
+	  <property name="jdbcTemplate" ref="jdbcTemplate" />  
 	</bean>
 	
-    <!-- **************************************** -->   
-	<!-- Asynchronous Message Listener Containers -->
-    <!-- **************************************** -->	
+	<bean id="throughputMonitor" class="com.gpstracker.server.core.monitor.LocalStatefulThroughputMonitor">
+	</bean>
 	
-
 </beans>

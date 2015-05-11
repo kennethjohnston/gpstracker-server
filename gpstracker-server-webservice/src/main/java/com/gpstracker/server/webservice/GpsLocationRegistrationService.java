@@ -3,8 +3,9 @@ package com.gpstracker.server.webservice;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import com.gpstracker.server.model.external.ExternalEntity;
 import com.gpstracker.server.model.external.request.UserGpsLocationRegisterRequest;
-import com.gpstracker.server.model.external.response.RawUserResponse;
+import com.gpstracker.server.model.external.response.CallbackResponse;
 import com.gpstracker.server.model.external.response.UserGpsLocationResponse;
 
 /**
@@ -17,18 +18,29 @@ public class GpsLocationRegistrationService extends AbstractWebService<UserGpsLo
     /**
      * Web service that handles the GPS location requests.
      * 
-     * @param gpsLocation the external gps location input
-     * @return true if the request was successful, false otherwise
+     * @param userGpsLocationRegistrationRequest the external gps location registration request
+     * @return the user GPS location response, may contain a callback response.
      */
     @WebMethod
     public UserGpsLocationResponse registerLocation(final UserGpsLocationRegisterRequest userGpsLocationRegistrationRequest) {
-        Object reponse = super.handleRequest(userGpsLocationRegistrationRequest);
-        if (reponse instanceof RawUserResponse) {
+        ExternalEntity reponse = super.handleRequest(userGpsLocationRegistrationRequest);
+        if (reponse instanceof CallbackResponse) {
             UserGpsLocationResponse userGpsLocationResponse = new UserGpsLocationResponse();
-            userGpsLocationResponse.setCallBackResponse(((RawUserResponse) reponse).getCallBackResponse());            
+            userGpsLocationResponse.setCallBackResponse((CallbackResponse) reponse);
+            userGpsLocationResponse.setSuccessful(true);
             reponse = userGpsLocationResponse;
         }
         
         return (UserGpsLocationResponse) reponse;
-    }  
+    }
+    
+    /**
+     * Web service that handles the GPS location requests.
+     * 
+     * @param userGpsLocationRegistrationRequest the external gps location registration request
+     * @return the user GPS location response, may contain a callback response. 
+     */
+    public UserGpsLocationResponse registerLocationResultCallback(final UserGpsLocationRegisterRequest userGpsLocationRegistrationRequest) {
+        return (UserGpsLocationResponse) super.handleCallback(userGpsLocationRegistrationRequest);
+    } 
 }

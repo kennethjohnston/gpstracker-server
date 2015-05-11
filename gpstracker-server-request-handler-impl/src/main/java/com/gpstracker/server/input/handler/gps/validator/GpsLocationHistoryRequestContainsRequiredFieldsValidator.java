@@ -21,10 +21,7 @@ public class GpsLocationHistoryRequestContainsRequiredFieldsValidator implements
         } else {
             if (StringUtils.isBlank(message.getUserIdentifier().getUserId()))  {
                 errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user id missing"));
-            }
-            if (StringUtils.isBlank(message.getUserIdentifier().getUserName()))  {
-                errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user name missing"));
-            }
+            }            
         }
         if (StringUtils.isBlank(message.getStartDate()))  {
             errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Start date missing"));

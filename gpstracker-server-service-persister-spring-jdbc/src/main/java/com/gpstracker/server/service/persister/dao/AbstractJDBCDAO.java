@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class AbstractJDBCDAO {
     
+    /** The Spring JDBC template. */
     private JdbcTemplate jdbcTemplate;
 
     /**

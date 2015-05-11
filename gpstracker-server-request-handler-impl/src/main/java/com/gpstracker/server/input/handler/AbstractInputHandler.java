@@ -38,7 +38,7 @@ public abstract class AbstractInputHandler<T, R> implements ExternalInputHandler
             throw new RuntimeException("Invalid input recieved.");
         }
         
-        return response;        
+        return response;
     }
         
     //---------------------------------------------------------------------------------------------

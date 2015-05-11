@@ -1,21 +1,26 @@
 package com.gpstracker.server.model.external.response;
 
+import com.gpstracker.server.model.external.user.UserIdentifier;
+
 
 public class UserLoginResponse extends RawUserResponse {
 
-    private String authenicationToken;
-
+    /** Serial version Id. */   
+    private static final long serialVersionUID = 8538984093587857184L;
+    /** The user unique Id. */
+    private UserIdentifier userIdentifier;
+    
     /**
-     * @return the authenicationToken
+     * @return the userId
      */
-    public String getAuthenicationToken() {
-        return authenicationToken;
+    public UserIdentifier getUserIdentifier() {
+        return userIdentifier;
     }
-
+    
     /**
-     * @param authenicationToken the authenicationToken to set
+     * @param userId the userId to set
      */
-    public void setAuthenicationToken(String authenicationToken) {
-        this.authenicationToken = authenicationToken;
+    public void setUserIdentifier(final UserIdentifier userIdentifier) {
+        this.userIdentifier = userIdentifier;
     }
 }

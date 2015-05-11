@@ -5,14 +5,14 @@ import com.gpstracker.server.model.external.user.UserIdentifier;
 
 public abstract class AbstractUserRequest extends ExternalEntity {
     
+    /** Serial version Id. */
+    private static final long serialVersionUID = -8956093311451684684L;
     /** The user identifier. */
     private UserIdentifier userIdentifier;
-    /** The token provided to the user when they logged in. */
-    private String authenticationToken;
-    /** The device name. */
-    private String deviceName;
     /** Indicates if callback is supported. */
     private boolean callBackAllowed;
+    /** The callback Id. */
+    private String callBackToken;
     
     //---------------------------------------------------------------------------------------------
     // Getters and Setters
@@ -31,34 +31,6 @@ public abstract class AbstractUserRequest extends ExternalEntity {
     }
     
     /**
-     * @return the authenticationToken
-     */
-    public String getAuthenticationToken() {
-        return authenticationToken;
-    }
-    
-    /**
-     * @param authenticationToken the authenticationToken to set
-     */
-    public void setAuthenticationToken(String authenticationToken) {
-        this.authenticationToken = authenticationToken;
-    }
-    
-    /**
-     * @return the deviceName
-     */
-    public String getDeviceName() {
-        return deviceName;
-    }
-    
-    /**
-     * @param deviceName the deviceName to set
-     */
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-    
-    /**
      * @return the callBackAllowed
      */
     public boolean isCallBackAllowed() {
@@ -70,5 +42,19 @@ public abstract class AbstractUserRequest extends ExternalEntity {
      */
     public void setCallBackAllowed(boolean callBackAllowed) {
         this.callBackAllowed = callBackAllowed;
+    }
+
+    /**
+     * @return the callBackToken
+     */
+    public String getCallBackToken() {
+        return callBackToken;
+    }
+
+    /**
+     * @param callBackToken the callBackToken to set
+     */
+    public void setCallBackToken(String callBackToken) {
+        this.callBackToken = callBackToken;
     }    
 }

@@ -6,7 +6,6 @@ package com.gpstracker.server.response.generator;
  * @param <T> the type of the internal input
  * @param <R> the type of the external output
  */
-public interface AbstractResponseGenerator<T, R>  {
+public class AbstractResponseGenerator<T, R>  {
 
-    R generateResponse(T internalInput);
 }

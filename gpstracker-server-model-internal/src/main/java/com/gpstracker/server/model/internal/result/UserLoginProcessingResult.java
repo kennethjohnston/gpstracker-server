@@ -1,21 +1,29 @@
 package com.gpstracker.server.model.internal.result;
 
+import com.gpstracker.server.model.internal.user.User;
+
 public class UserLoginProcessingResult extends AbstractProcessingResult {
-
-    private static final long serialVersionUID = 1L;
-    private String authenicationToken;
-
+    
+    /** Serialisation Id. */
+    private static final long serialVersionUID = -8776531258590193429L;
+    /** The user associated with the login request. */
+    private User user;
+    
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
-     * @return the authenicationToken
+     * @return the user
      */
-    public String getAuthenicationToken() {
-        return authenicationToken;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param authenicationToken the authenicationToken to set
+     * @param user the user to set
      */
-    public void setAuthenicationToken(String authenicationToken) {
-        this.authenicationToken = authenicationToken;
-    }    
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    
 }

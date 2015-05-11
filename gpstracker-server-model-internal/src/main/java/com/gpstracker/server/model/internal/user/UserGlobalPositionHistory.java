@@ -1,8 +1,9 @@
 package com.gpstracker.server.model.internal.user;
 
+import com.gpstracker.server.model.internal.InternalEntity;
 import com.gpstracker.server.model.internal.gps.GlobalPositionList;
 
-public class UserGlobalPositionHistory {
+public class UserGlobalPositionHistory extends InternalEntity {
 
     /** User. */
     private User user;

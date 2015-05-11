@@ -8,6 +8,8 @@ public class UserHistoricGlobalPositionProcessingResult extends AbstractProcessi
     /** The list of historic location. */
     private GlobalPositionList historicGlobalPositionList;
 
+    //---------------------------------------------------------------------------------------------
+    // Getters and Setters
     /**
      * @return the historicGlobalPositionList
      */
@@ -20,5 +22,5 @@ public class UserHistoricGlobalPositionProcessingResult extends AbstractProcessi
      */
     public void setHistoricGlobalPositionList(GlobalPositionList historicGlobalPositionList) {
         this.historicGlobalPositionList = historicGlobalPositionList;
-    }    
+    }
 }

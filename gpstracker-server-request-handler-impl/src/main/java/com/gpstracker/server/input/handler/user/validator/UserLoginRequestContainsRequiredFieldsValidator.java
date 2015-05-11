@@ -16,16 +16,9 @@ public class UserLoginRequestContainsRequiredFieldsValidator implements External
     public List<ErrorCode> validateMessage(final UserLoginRequest message) {
         List<ErrorCode> errorCodes = new ArrayList<ErrorCode>();
         
-        if (message.getUserIdentifier() == null)  {
-            errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "User identifier missing"));
-        } else {
-            if (StringUtils.isBlank(message.getUserIdentifier().getUserId()))  {
-                errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user id missing"));
-            }
-            if (StringUtils.isBlank(message.getUserIdentifier().getUserName()))  {
-                errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user name missing"));
-            }
-        }
+        if (StringUtils.isBlank(message.getUserName()))  {
+            errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "User name missing"));
+        } 
         
         if (StringUtils.isBlank(message.getPassword()))  {
             errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Password missing"));

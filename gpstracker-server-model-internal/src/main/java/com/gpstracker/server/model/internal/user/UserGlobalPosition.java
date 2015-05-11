@@ -8,8 +8,10 @@ import com.gpstracker.server.model.internal.gps.GlobalPosition;
  */
 public class UserGlobalPosition extends InternalEntity {
     
+    /**    */
+    private static final long serialVersionUID = 1L;
     /** The use assoicated with the global position. */
-    private long userId;
+    private String userId;
     /** The global position. */
     private GlobalPosition globalPosition;
 
@@ -25,7 +27,7 @@ public class UserGlobalPosition extends InternalEntity {
      * @param userId the user id
      * @param globalPosition the global position
      */
-    public UserGlobalPosition(final long userId, final GlobalPosition globalPosition) {
+    public UserGlobalPosition(final String userId, final GlobalPosition globalPosition) {
        this.userId = userId;
        this.globalPosition = globalPosition;
     }
@@ -33,14 +35,14 @@ public class UserGlobalPosition extends InternalEntity {
     /**
      * @return the user Id
      */
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param user the user to set
      */
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

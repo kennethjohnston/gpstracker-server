@@ -21,10 +21,7 @@ public class GpsLocationRegisterRequestContainsRequiredFieldsValidator implement
         } else {
             if (StringUtils.isBlank(message.getUserIdentifier().getUserId()))  {
                 errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user id missing"));
-            }
-            if (StringUtils.isBlank(message.getUserIdentifier().getUserName()))  {
-                errorCodes.add(new ErrorCode(ErrorCodeType.MISSING_INPUT, "Associated user name missing"));
-            }
+            }            
         }
         
         if (message.getGpsLocation() == null)  {

@@ -2,7 +2,7 @@ package com.gpstracker.server.service;
 
 import java.util.List;
 
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 import com.gpstracker.server.api.service.gps.GpsService;
 import com.gpstracker.server.api.service.persister.dao.UserGlobalPositionDAO;
@@ -11,32 +11,41 @@ import com.gpstracker.server.model.internal.user.UserGlobalPosition;
 
 public class DefaultGpsService implements GpsService {
     
+    /** The persister for GPS data queries. */
     private UserGlobalPositionDAO persister;
 
+    //---------------------------------------------------------------------------------------------
     @Override
     public boolean store(final UserGlobalPosition globalPosition) {
         return persister.store(globalPosition);
     }
     
     @Override
-    public List<GlobalPosition> loadByUserName(String userName) {
-        // TODO Auto-generated method stub
-        return null;
+    public boolean delete(final UserGlobalPosition globalPosition) {
+        return persister.delete(globalPosition);
     }
 
     @Override
-    public List<GlobalPosition> loadByUserId(long userId) {
-        // TODO Auto-generated method stub
-        return null;
+    public boolean update(final UserGlobalPosition globalPosition) {
+        return persister.update(globalPosition);
+    }
+    
+    @Override
+    public List<GlobalPosition> loadAllByUserName(String userName) {
+        return persister.loadAllByUserName(userName);
     }
 
     @Override
-    public List<GlobalPosition> loadByUserIdAndDateRange(
-            long userId,
-            LocalDate startDate,
-            LocalDate endDate) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<GlobalPosition> loadAllByUserId(String userId) {
+        return persister.loadAllByUserId(userId);
+    }
+
+    @Override
+    public List<GlobalPosition> loadAllByUserIdAndDateRange(
+            final String userId,
+            final DateTime startDate,            
+            final DateTime endDate) {
+        return persister.loadAllByUserIdAndDateRange(userId, startDate, endDate);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -53,17 +62,5 @@ public class DefaultGpsService implements GpsService {
      */
     public void setPersister(final UserGlobalPositionDAO persister) {
         this.persister = persister;
-    }
-
-    @Override
-    public boolean delete(final UserGlobalPosition globalPosition) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean update(final UserGlobalPosition globalPosition) {
-        // TODO Auto-generated method stub
-        return false;
     }
 }

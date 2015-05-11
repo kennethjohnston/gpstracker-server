@@ -9,5 +9,11 @@ import com.gpstracker.server.model.internal.InternalEntity;
  */
 public interface InternalMessageProcessor<T extends InternalEntity, R extends InternalEntity> extends InternalMessageProcessingOperation {
     
+    /**
+     * Process the internal message.
+     * 
+     * @param message the internal entity message
+     * @return the processing processing result
+     */
     R processMessage(T message);
 }

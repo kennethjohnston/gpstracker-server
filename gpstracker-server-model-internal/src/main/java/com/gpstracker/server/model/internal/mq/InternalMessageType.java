@@ -5,6 +5,7 @@ package com.gpstracker.server.model.internal.mq;
  */
 public enum InternalMessageType {
     
+    EXTERNAL_INPUT_RECEIVED,
     EXTERNAL_MESSAGE_INPUT,
     INTERNAL_MESSAGE_PROCESSING,
     INTERNAL_RESPONSE_PROCESSING

@@ -36,19 +36,19 @@
 	</wss:binding>
     
     <bean id="gpsTrackerUserRegistrationWs" class="com.gpstracker.server.webservice.UserRegistrationService">
-        <property name="handler" ref="userRegistrationInputHandlerFrameworkHandler" />
+        <property name="handler" ref="userRegistrationFrameworkHandler" />
     </bean>
     
     <bean id="gpsTrackerUserLoginWs" class="com.gpstracker.server.webservice.UserLoginService">
-        <property name="handler" ref="userLoginInputHandlerFrameworkHandler" />
+        <property name="handler" ref="userLoginFrameworkHandler" />
     </bean>
     
     <bean id="gpsTrackerRegisterLocationWs" class="com.gpstracker.server.webservice.GpsLocationRegistrationService">
-        <property name="handler" ref="gpsRegistrationInputHandlerFrameworkHandler" />
+        <property name="handler" ref="gpsRegistrationFrameworkHandler" />
     </bean>
     
     <bean id="gpsTrackerHistoryWs" class="com.gpstracker.server.webservice.UserHistoricLocationService">
-        <property name="handler" ref="gpsLocationHistoryInputHandlerFrameworkHandler" />
+        <property name="handler" ref="gpsLocationHistoryFrameworkHandler" />
     </bean>
 
 </beans>

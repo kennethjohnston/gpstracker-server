@@ -1,5 +1,6 @@
 package com.gpstracker.server.model.internal.user;
 
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 import com.gpstracker.server.model.internal.InternalEntity;
@@ -9,23 +10,26 @@ import com.gpstracker.server.model.internal.InternalEntity;
  */
 public class User extends InternalEntity {
     
-    private long userId;
+    /** Serial version Id. */
+    private static final long serialVersionUID = -8454091627271863223L;
+    private String userId;
     private String userName;
-    private String userPhoneNumber;
-    private String userEmailAddress;
-    private LocalDate userRegistrationDate;
+    private String password;
+    private String phoneNumber;
+    private String emailAddress;
+    private DateTime registrationDate;
     
     /**
      * @return the userId
      */
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
     
     /**
      * @param userId the userId to set
      */
-    public void setUserId(long userId) {
+    public void setUserId(final String userId) {
         this.userId = userId;
     }
     
@@ -37,6 +41,20 @@ public class User extends InternalEntity {
     }
     
     /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
      * @param userName the userName to set
      */
     public void setUserName(String userName) {
@@ -46,42 +64,42 @@ public class User extends InternalEntity {
     /**
      * @return the userPhoneNumber
      */
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
     
     /**
      * @param userPhoneNumber the userPhoneNumber to set
      */
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
+    public void setPhoneNumber(String userPhoneNumber) {
+        this.phoneNumber = userPhoneNumber;
     }
     
     /**
      * @return the userEmailAddress
      */
-    public String getUserEmailAddress() {
-        return userEmailAddress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
     
     /**
      * @param userEmailAddress the userEmailAddress to set
      */
-    public void setUserEmailAddress(String userEmailAddress) {
-        this.userEmailAddress = userEmailAddress;
+    public void setEmailAddress(String userEmailAddress) {
+        this.emailAddress = userEmailAddress;
     }
 
     /**
      * @return the userRegistrationDate
      */
-    public LocalDate getUserRegistrationDate() {
-        return userRegistrationDate;
+    public DateTime getRegistrationDate() {
+        return registrationDate;
     }
 
     /**
      * @param userRegistrationDate the userRegistrationDate to set
      */
-    public void setUserRegistrationDate(LocalDate userRegistrationDate) {
-        this.userRegistrationDate = userRegistrationDate;
+    public void setRegistrationDate(DateTime userRegistrationDate) {
+        this.registrationDate = userRegistrationDate;
     }
 }

@@ -9,6 +9,16 @@ public class DefaultUserRegistrationResponseGenerator implements UserRegistratio
     @Override
     public UserRegistrationResponse generateResponse(final UserRegistrationProcessingResult processingResult) {
         UserRegistrationResponse response = new UserRegistrationResponse();
+        response.setSuccessful(processingResult.isSucessfullyProcessed());
+        
+        for (String error : processingResult.getErrorList()) {
+            response.addError(error);
+        }
+       
+        for (String warning : processingResult.getWarningList()) {
+            response.addWarning(warning);
+        }
+        
         
         return response;
     }
